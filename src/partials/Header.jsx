@@ -110,7 +110,7 @@ function Header() {
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:grow">
             {/* Desktop menu links */}
-            <ul className="flex grow justify-end flex-wrap items-center">
+            <ul className="flex grow justify-end flex-wrap items-center ml-36">
               <li>
                 <Link
                   to="/products"
@@ -127,27 +127,11 @@ function Header() {
                   Dashboard
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-                >
-                  About us
-                </Link>
-              </li>
               {/* 1st level: hover */}
             </ul>
 
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-              <li>
-                <Link
-                  to="/signin"
-                  className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
-                >
-                  Sign in
-                </Link>
-              </li>
               <li>
                 <button
                   onClick={() => {
