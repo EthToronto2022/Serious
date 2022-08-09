@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { Web3ReactProvider } from '@web3-react/core'
+import { Web3Provider } from '@ethersproject/providers'
 
 import 'aos/dist/aos.css'
 import './css/style.css'
@@ -19,6 +21,10 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ResetPassword from './pages/ResetPassword'
 import PageNotFound from './pages/PageNotFound'
+
+function getLibrary(provider) {
+  return new Web3Provider(provider)
+}
 
 function App() {
   const location = useLocation()
@@ -41,7 +47,7 @@ function App() {
   }, [location.pathname]) // triggered on route change
 
   return (
-    <>
+    <Web3ReactProvider getLibrary={getLibrary}>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/tutorials" element={<Tutorials />} />
@@ -56,7 +62,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </>
+    </Web3ReactProvider>
   )
 }
 
