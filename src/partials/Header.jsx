@@ -2,13 +2,33 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Transition from '../utils/Transition'
 import Dropdown from '../utils/Dropdown'
+import { useWeb3React } from '@web3-react/core'
+import { InjectedConnector } from '@web3-react/injected-connector'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWallet } from '@fortawesome/free-solid-svg-icons/faWallet'
+
+const Injected = new InjectedConnector()
 
 function Header() {
+  const { account, activate } = useWeb3React()
+
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [top, setTop] = useState(true)
 
   const trigger = useRef(null)
   const mobileNav = useRef(null)
+
+  useEffect(() => {
+    const provider = window.localStorage.getItem('provider')
+    if (provider) activate(Injected)
+    setTimeout(() => {
+      if (!account) setLoadingWills(false)
+    }, 500)
+  }, [])
+
+  const setProvider = (type) => {
+    window.localStorage.setItem('provider', type)
+  }
 
   // close the mobile menu on click outside
   useEffect(() => {
@@ -129,22 +149,22 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/signup"
-                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
+                <button
+                  onClick={() => {
+                    activate(Injected)
+                    setProvider('injected')
+                  }}
+                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3 gap-2 items-center flex"
                 >
-                  <span>Sign up</span>
-                  <svg
-                    className="w-3 h-3 fill-current text-gray-400 shrink-0 ml-2 -mr-1"
-                    viewBox="0 0 12 12"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z"
-                      fillRule="nonzero"
-                    />
-                  </svg>
-                </Link>
+                  <FontAwesomeIcon icon={faWallet} className="w-4 h-4" />
+                  <span>
+                    {account
+                      ? account.substring(0, 6) +
+                        '...' +
+                        account.substring(account.length - 6, account.length)
+                      : 'Connect Wallet'}
+                  </span>
+                </button>
               </li>
             </ul>
           </nav>
