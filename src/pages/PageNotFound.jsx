@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Header from '../partials/Header'
+import Header from "../partials/Header";
 
-import Footer from '../partials/Footer'
+import Footer from "../partials/Footer";
 
 function PageNotFound() {
   return (
@@ -67,7 +67,7 @@ function PageNotFound() {
       {/*  Site footer */}
       <Footer />
     </div>
-  )
+  );
 }
 
-export default PageNotFound
+export default PageNotFound;

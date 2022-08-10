@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Header from '../partials/Header'
-import Footer from '../partials/Footer'
-import Checkbox from '../partials/Checkbox'
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
+import Checkbox from "../partials/Checkbox";
 
-import { useBuyerFlow } from '../context/buyerFlow'
+import { useBuyerFlow } from "../context/buyerFlow";
 
 function Products() {
-  const { config, setConfig } = useBuyerFlow()
+  const { config, setConfig } = useBuyerFlow();
 
-  const { selectedActivities, name, considerations, product } = config
+  const { selectedActivities, name, considerations, product } = config;
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -45,9 +45,9 @@ function Products() {
           </span>
           <Checkbox
             data={[
-              { title: 'Review Personalized Offers' },
-              { title: 'Watch Personalize Video' },
-              { title: 'Attend Video Appointment' },
+              { title: "Review Personalized Offers" },
+              { title: "Watch Personalize Video" },
+              { title: "Attend Video Appointment" },
             ]}
           />
           <div className="relative border border-gray-300 rounded-md px-6 py-2 mt-8 shadow-sm focus-within:ring-1 focus-within:ring-teal-400 focus-within:border-teal-400">
@@ -88,7 +88,7 @@ function Products() {
       {/*  Site footer */}
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Products
+export default Products;

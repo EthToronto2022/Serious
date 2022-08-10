@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import Header from '../partials/Header'
-import DocumentationContent from '../partials/DocumentationContent'
-import Footer from '../partials/Footer'
+import Header from "../partials/Header";
+import DocumentationContent from "../partials/DocumentationContent";
+import Footer from "../partials/Footer";
 
 function Documentation() {
-  const [sidebarNavOpen, setSidebarNavOpen] = useState(false)
-  const [sidebarLinkOpen, setSidebarLinkOpen] = useState(true)
+  const [sidebarNavOpen, setSidebarNavOpen] = useState(false);
+  const [sidebarLinkOpen, setSidebarLinkOpen] = useState(true);
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -66,8 +66,8 @@ function Documentation() {
                     <button
                       className="flex items-center justify-between text-lg font-medium text-gray-900 w-full my-4 md:hidden"
                       onClick={(e) => {
-                        e.preventDefault()
-                        setSidebarNavOpen(!sidebarNavOpen)
+                        e.preventDefault();
+                        setSidebarNavOpen(!sidebarNavOpen);
                       }}
                     >
                       <span>Docs navigation</span>
@@ -82,7 +82,7 @@ function Documentation() {
                           height="2"
                           rx="1"
                           className={`transform origin-center transition duration-200 ease-out ${
-                            sidebarNavOpen && '!rotate-180'
+                            sidebarNavOpen && "!rotate-180"
                           }`}
                         />
                         <rect
@@ -91,14 +91,14 @@ function Documentation() {
                           height="2"
                           rx="1"
                           className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-                            sidebarNavOpen && '!rotate-180'
+                            sidebarNavOpen && "!rotate-180"
                           }`}
                         />
                       </svg>
                     </button>
 
                     {/* Docs nav */}
-                    <nav className={`md:block ${!sidebarNavOpen && 'hidden'}`}>
+                    <nav className={`md:block ${!sidebarNavOpen && "hidden"}`}>
                       <ul className="font-medium -my-2">
                         {/* 1st level */}
                         <li className="py-2">
@@ -106,8 +106,8 @@ function Documentation() {
                             className="flex items-center hover:underline"
                             href="#0"
                             onClick={(e) => {
-                              e.preventDefault()
-                              setSidebarLinkOpen(!sidebarLinkOpen)
+                              e.preventDefault();
+                              setSidebarLinkOpen(!sidebarLinkOpen);
                             }}
                             aria-expanded={sidebarLinkOpen}
                           >
@@ -132,7 +132,7 @@ function Documentation() {
                           {/* 2nd level */}
                           <ul
                             className={`font-normal -mb-1 mt-1 ml-2 pl-5 border-l border-gray-300 ${
-                              !sidebarLinkOpen && 'hidden'
+                              !sidebarLinkOpen && "hidden"
                             }`}
                           >
                             <li className="py-1">
@@ -247,7 +247,7 @@ function Documentation() {
       {/*  Site footer */}
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Documentation
+export default Documentation;

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import AboutImage from '../images/about-01.jpg'
+import AboutImage from "../images/about-01.jpg";
 
 function AboutIntro() {
   return (
@@ -31,7 +31,7 @@ function AboutIntro() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default AboutIntro
+export default AboutIntro;

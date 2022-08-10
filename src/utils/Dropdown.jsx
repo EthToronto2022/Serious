@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import Transition from '../utils/Transition'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Transition from "../utils/Transition";
 
 function Dropdown({ children, title, onPress, isSelected }) {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <div className="relative flex flex-col justify-center items-center">
       <div
         className={`flex text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 items-center transition duration-150 ease-in-out border-2 rounded-md w-64 justify-between ${
-          isSelected && 'border-teal-400'
+          isSelected && "border-teal-400"
         }`}
         aria-expanded={dropdownOpen}
       >
@@ -39,10 +39,10 @@ function Dropdown({ children, title, onPress, isSelected }) {
         {children}
       </Transition>
     </div>
-  )
+  );
 }
 
-export default Dropdown
+export default Dropdown;
 
 Dropdown.propTypes = {
   children: PropTypes.oneOfType([
@@ -50,4 +50,4 @@ Dropdown.propTypes = {
     PropTypes.element.isRequired,
   ]),
   title: PropTypes.string.isRequired,
-}
+};

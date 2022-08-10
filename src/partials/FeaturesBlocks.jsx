@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function FeaturesBlocks() {
   return (
@@ -271,7 +271,7 @@ function FeaturesBlocks() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeaturesBlocks
+export default FeaturesBlocks;

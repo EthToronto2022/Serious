@@ -1,25 +1,25 @@
-import React from 'react'
+import React from "react";
 
-import Dropdown from '../utils/Dropdown'
-import Header from '../partials/Header'
-import Footer from '../partials/Footer'
+import Dropdown from "../utils/Dropdown";
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
 
-import { PROVIDER_LIST } from '../constants'
-import { useBuyerFlow } from '../context/buyerFlow'
-import StarRating from '../partials/StarRating'
+import { PROVIDER_LIST } from "../constants";
+import { useBuyerFlow } from "../context/buyerFlow";
+import StarRating from "../partials/StarRating";
 
 const ProviderSelect = () => {
-  const { config, setConfig } = useBuyerFlow()
+  const { config, setConfig } = useBuyerFlow();
 
   const onPress = (idx) => {
-    const newSetInstance = new Set([...config.selectedProviders])
+    const newSetInstance = new Set([...config.selectedProviders]);
 
     config.selectedProviders.has(idx)
       ? newSetInstance.delete(idx)
-      : newSetInstance.add(idx)
+      : newSetInstance.add(idx);
 
-    setConfig({ ...config, selectedProviders: newSetInstance })
-  }
+    setConfig({ ...config, selectedProviders: newSetInstance });
+  };
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -48,7 +48,7 @@ const ProviderSelect = () => {
           </div>
         </div>
         {PROVIDER_LIST.map((provider, idx) => {
-          const { name, description } = provider
+          const { name, description } = provider;
 
           return (
             <Dropdown
@@ -76,14 +76,14 @@ const ProviderSelect = () => {
                 </ul>
               </div>
             </Dropdown>
-          )
+          );
         })}
       </main>
 
       {/*  Site footer */}
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default ProviderSelect
+export default ProviderSelect;

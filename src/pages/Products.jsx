@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import Header from '../partials/Header'
-import Footer from '../partials/Footer'
-import ProductList from '../partials/ProductList'
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
+import ProductList from "../partials/ProductList";
 
 function Products() {
   return (
@@ -18,7 +18,7 @@ function Products() {
       {/*  Site footer */}
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Products
+export default Products;

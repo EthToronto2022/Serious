@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import AboutImage from '../images/about-02.jpg'
-import AboutLogo from '../images/about-logo.png'
+import AboutImage from "../images/about-02.jpg";
+import AboutLogo from "../images/about-logo.png";
 
 function AboutStory() {
   return (
@@ -63,8 +63,8 @@ function AboutStory() {
                   <div className="text-sm font-medium text-gray-600 mt-2">
                     <cite className="text-gray-900 not-italic">
                       Micheal Osman
-                    </cite>{' '}
-                    ·{' '}
+                    </cite>{" "}
+                    ·{" "}
                     <a className="text-blue-600" href="#0">
                       New York Times
                     </a>
@@ -87,7 +87,7 @@ function AboutStory() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default AboutStory
+export default AboutStory;

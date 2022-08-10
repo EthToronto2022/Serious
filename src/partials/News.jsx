@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import NewsImage01 from '../images/news-01.jpg'
-import NewsImage02 from '../images/news-02.jpg'
-import NewsImage03 from '../images/news-03.jpg'
-import NewsAuthor01 from '../images/news-author-01.jpg'
-import NewsAuthor02 from '../images/news-author-02.jpg'
+import NewsImage01 from "../images/news-01.jpg";
+import NewsImage02 from "../images/news-02.jpg";
+import NewsImage03 from "../images/news-03.jpg";
+import NewsAuthor01 from "../images/news-author-01.jpg";
+import NewsAuthor02 from "../images/news-author-02.jpg";
 
 function News() {
   return (
@@ -14,7 +14,7 @@ function News() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2">The most innovative businesses choose Simple</h2>
+            <h2 className="h2">The most innovative businesess choose Simple</h2>
           </div>
 
           {/* Categories */}
@@ -282,7 +282,7 @@ function News() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default News
+export default News;

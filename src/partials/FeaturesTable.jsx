@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function FeaturesTable() {
   return (
@@ -310,7 +310,7 @@ function FeaturesTable() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeaturesTable
+export default FeaturesTable;

@@ -1,27 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { useBuyerFlow } from '../context/buyerFlow'
+import { useBuyerFlow } from "../context/buyerFlow";
 
 const Checkbox = ({ data }) => {
-  const { config, setConfig } = useBuyerFlow()
-  const { selectedActivities } = config
+  const { config, setConfig } = useBuyerFlow();
+  const { selectedActivities } = config;
 
   const onPress = (idx) => {
-    const newSetInstance = new Set([...selectedActivities])
+    const newSetInstance = new Set([...selectedActivities]);
 
     selectedActivities.has(idx)
       ? newSetInstance.delete(idx)
-      : newSetInstance.add(idx)
+      : newSetInstance.add(idx);
 
-    setConfig({ ...config, selectedActivities: newSetInstance })
-  }
+    setConfig({ ...config, selectedActivities: newSetInstance });
+  };
 
   const Row = ({ title, index }) => {
     return (
       <div
         onClick={() => onPress(index)}
         className={`relative flex items-start px-8 py-2 rounded-lg border-gray-200 mt-6 shadow-md duration-300 border-[1.5px] hover:shadow-xl ${
-          selectedActivities.has(index) && 'border-teal-400'
+          selectedActivities.has(index) && "border-teal-400"
         }`}
       >
         <div className="flex items-center h-5">
@@ -37,8 +37,8 @@ const Checkbox = ({ data }) => {
           <label className="font-medium text-gray-700">{title}</label>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div>
@@ -47,7 +47,7 @@ const Checkbox = ({ data }) => {
         <Row key={index} {...props} index={index} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Checkbox
+export default Checkbox;
