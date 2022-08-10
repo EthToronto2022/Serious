@@ -6,16 +6,16 @@ function Dropdown({ children, title, onPress, isSelected }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <div className="relative flex flex-col justify-center items-center">
+    <div className="relative flex flex-col justify-center items-center mb-6">
       <div
         className={`flex text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 items-center transition duration-150 ease-in-out border-2 rounded-md w-64 justify-between ${
           isSelected && "border-teal-400"
         }`}
         aria-expanded={dropdownOpen}
       >
-        <span className="fill-current" onClick={onPress}>
+        <div className="flex w-[80%] hover:cursor-pointer" onClick={onPress}>
           {title}
-        </span>
+        </div>
         <svg
           onClick={() => setDropdownOpen(!dropdownOpen)}
           className="h-3 text-gray-500 cursor-pointer pl-2 shrink-0"

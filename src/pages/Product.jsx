@@ -41,7 +41,7 @@ function Products() {
         </div>
         <div className="flex flex-col justify-center items-center font-bold">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
-            10 USDC Pledge
+            0.01 ETH Pledge
           </span>
           <Checkbox
             data={[
