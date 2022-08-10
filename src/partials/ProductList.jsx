@@ -15,11 +15,6 @@ function ProductList() {
     resetConfig();
   }, []);
 
-  useEffect(() => {
-    console.log("here");
-    !loading && console.log(keywords);
-  }, [loading]);
-
   const filteredKeywords = useMemo(
     () => PRODUCT_LIST.filter((product) => !keywords.includes(product.id)),
     [keywords]
