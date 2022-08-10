@@ -16,7 +16,24 @@ const ProviderSelect = () => {
   const { config, setConfig } = useBuyerFlow();
   const { selectedProviders, product } = config;
 
-  const { setKeyword, setPledges } = useUserContract();
+  const {
+    keywords,
+    setKeyword,
+    setPledges,
+    loading,
+    companies,
+    getCompaniesFromKeyword,
+  } = useUserContract();
+
+  useEffect(() => {
+    console.log(keywords);
+    if (!companies.length && keywords.length > 0) {
+      getCompaniesFromKeyword(keywords[0]);
+    }
+  }, [keywords]);
+
+  console.log(companies);
+
   const navigate = useNavigate();
 
   const onSetProvider = (idx) => {
