@@ -15,9 +15,13 @@ const ProgressBar = () => {
     const hasSelectedCommitment = config.selectedActivities.size > 0 && config.name.length > 0;
     const hasSelectedProvider = config.selectedProviders.size > 0;
 
+    // position: absolute;
+    // left: 240px;
+    // right: 240px;
+    // top: 260px;
     return (
     // bg-indigo-600 rounded-full group-hover:bg-indigo-800
-    <nav aria-label="Progress">
+    <nav aria-label="Progress" className="absolute top-[260px] left-[240px] right-[240px]">
         <ol role="list" className="border border-gray-300 rounded-md divide-y divide-gray-300 md:flex md:divide-y-0">
             <li className="relative md:flex-1 md:flex">
             <a href="#" className="group flex items-center w-full">
