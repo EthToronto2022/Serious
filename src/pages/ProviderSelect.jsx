@@ -57,7 +57,7 @@ const ProviderSelect = () => {
               isSelected={config.selectedProviders.has(idx)}
             >
               <div className="flex w-full justify-between">
-                <p>{description}</p>
+                <p className="w-96">{description}</p>
                 <ul>
                   <li>
                     <label className="font-xs text-gray-700">Service</label>

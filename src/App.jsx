@@ -54,11 +54,6 @@ function App() {
           path="/products/:category/providers"
           element={<ProviderSelect />}
         />
-        {/* <Route path="/Dashboard" element={<Dashboard />} /> */}
-        <Route path="/about" element={<About />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/providers" element={<Providers />} />
         <Route

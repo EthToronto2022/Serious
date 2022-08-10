@@ -34,8 +34,8 @@ function ProductList() {
           </div>
         </div>
       </div>
-      <div className="justify-center items-center pt-5">
-        {PRODUCT_LIST.map(({ id, title, icon }, index) => (
+      <div className="grid grid-cols-2 justify-center items-center pt-5">
+        {PRODUCT_LIST.map(({ id, title, iconPath }, index) => (
           <div
             onClick={() => {
               setConfig({
@@ -49,7 +49,7 @@ function ProductList() {
               selectedIndex === index && "bg-slate-200 border-blue-600"
             }`}
           >
-            {icon}
+            <img src={iconPath} height={25} width={25} />
             <h3 className="font-light text-zinc-600">{title}</h3>
           </div>
         ))}
