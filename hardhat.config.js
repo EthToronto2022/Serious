@@ -29,6 +29,6 @@ module.exports = {
     sources: "./hardhat/contracts",
     tests: "./hardhat/test",
     cache: "./hardhat/cache",
-    artifacts: "./hardhat/contractArtifacts",
+    artifacts: "./src/contract/contractArtifacts",
   },
 };

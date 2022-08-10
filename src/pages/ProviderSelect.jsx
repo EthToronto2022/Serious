@@ -1,19 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Dropdown from "../utils/Dropdown";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 
 import { PROVIDER_LIST } from "../constants";
-import { useBuyerFlow } from "../context/buyerFlow";
 import StarRating from "../partials/StarRating";
 import ProgressBar from "../partials/ProgressBar";
 
+import { useBuyerFlow } from "../context/buyerFlow";
+import { useUserContract } from "../utils/contractInterfaceUser";
+
 const ProviderSelect = () => {
   const { config, setConfig } = useBuyerFlow();
+  const { selectedProviders, product } = config;
 
-  const onPress = (idx) => {
+  const { setKeyword, setPledges } = useUserContract();
+  const navigate = useNavigate();
+
+  const onSetProvider = (idx) => {
     const newSetInstance = new Set([...config.selectedProviders]);
 
     config.selectedProviders.has(idx)
@@ -23,7 +29,22 @@ const ProviderSelect = () => {
     setConfig({ ...config, selectedProviders: newSetInstance });
   };
 
-  console.log(config)
+  const handleEndFlow = async () => {
+    const companies = [...selectedProviders].map(
+      (providerIdx) => PROVIDER_LIST[providerIdx]
+    );
+
+    try {
+      const keyword = product.id;
+
+      //await setKeyword(keyword);
+      await setPledges(companies);
+
+      navigate("/dashboard");
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -64,7 +85,7 @@ const ProviderSelect = () => {
               return (
                 <Dropdown
                   title={name}
-                  onPress={() => onPress(idx)}
+                  onPress={() => onSetProvider(idx)}
                   isSelected={config.selectedProviders.has(idx)}
                 >
                   <div className="flex w-full justify-between my-6">
@@ -90,12 +111,12 @@ const ProviderSelect = () => {
               );
             })}
             {config.selectedProviders.size > 0 && (
-              <Link
-                to={"/dashboard"}
+              <button
+                onClick={async () => await handleEndFlow()}
                 className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 mt-8 animate-fade"
               >
-                Next
-              </Link>
+                Done
+              </button>
             )}
           </div>
         </div>

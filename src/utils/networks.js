@@ -1,6 +1,6 @@
 import { Contract, ethers } from "ethers";
 
-import SiriusContract from "../contractArtifacts/hardhat/contracts/Sirius.sol/Sirious.json";
+import SiriusContract from "../contract/contractArtifacts/hardhat/contracts/Sirius.sol/Sirius.json";
 
 export const ETHEREUM = {
   chainId: "0x1",

@@ -3,7 +3,6 @@ import React from "react";
 const BuyerFlowContext = React.createContext({});
 
 const initialState = {
-  companyId: "",
   name: "",
   considerations: "",
   product: {},

@@ -1,3 +1,5 @@
+import { ethers } from "ethers";
+
 const BASE_ICON_PATH = "src/images/icons";
 
 export const PRODUCT_LIST = [
@@ -15,23 +17,25 @@ export const PRODUCT_LIST = [
 
 export const PROVIDER_LIST = [
   {
-    name: "Ratehub Mortage",
+    companyAdmin: ethers.constants.AddressZero,
     priceRating: 4,
     accuracyRating: 4,
     serviceRating: 5,
-    description:
-      "Over the past decade we have helped millions of Canadians make smarter financial decisions by providing the best tools, advice, and rates in the market. With roots as an early innovator in the online mortgage world, Ratehub.ca became the first comparison service to integrate an inhouse mortgage brokerage (the award winning CanWise Financial).  Since then, we’ve continued to grow with the addition of auto & home insurance quoting, credit card comparison, GIC & chequing account applications and much more.",
+    keyword: "lawyer",
+    name: "Ratehub Mortage",
+    description: "hi",
     url: "https://google.ca",
-    image: null,
+    image: "...",
   },
   {
-    name: "Scotiabank",
-    priceRating: 3,
+    companyAdmin: ethers.constants.AddressZero,
+    priceRating: 4,
     accuracyRating: 4,
-    serviceRating: 2,
-    description:
-      "Over the past decade we have helped millions of Canadians make smarter financial decisions by providing the best tools, advice, and rates in the market. With roots as an early innovator in the online mortgage world, Ratehub.ca became the first comparison service to integrate an inhouse mortgage brokerage (the award winning CanWise Financial).  Since then, we’ve continued to grow with the addition of auto & home insurance quoting, credit card comparison, GIC & chequing account applications and much more.",
+    serviceRating: 5,
+    keyword: "lawyer",
+    name: "Scotiabank",
+    description: "hi",
     url: "https://google.ca",
-    image: null,
+    image: "...",
   },
 ];

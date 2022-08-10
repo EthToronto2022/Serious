@@ -15,7 +15,6 @@ const ProgressBar = () => {
     const hasSelectedCommitment = config.selectedActivities.size > 0 && config.name.length > 0;
     const hasSelectedProvider = config.selectedProviders.size > 0;
 
-    console.log('hasSelectedCommitment ', hasSelectedCommitment)
     return (
     // bg-indigo-600 rounded-full group-hover:bg-indigo-800
     <nav aria-label="Progress">

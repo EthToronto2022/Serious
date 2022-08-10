@@ -57,10 +57,11 @@ export const useUserContract = () => {
       const signer = await library.getSigner();
       const contract = getContract(chainId, signer);
 
-      const tx = await contract.setKeyword(keyword);
-      await tx.wait();
+      const tx = await contract.setKeyword(keyword, {
+        value: ethers.utils.parseEther("0.01"),
+      });
 
-      await initalize();
+      return tx.hash;
     } catch (err) {
       console.log(err);
     }
@@ -75,9 +76,8 @@ export const useUserContract = () => {
       const contract = getContract(chainId, signer);
 
       const tx = await contract.setPledges(companies);
-      await tx.wait();
 
-      await initalize();
+      return tx.hash;
     } catch (err) {
       console.log(err);
     }
@@ -101,5 +101,13 @@ export const useUserContract = () => {
 
   const withdrawForEscrow = async (keyword) => {};
 
-  return { loading, keywords, messages, setKeyword, getMessages, verifyCode };
+  return {
+    loading,
+    keywords,
+    messages,
+    setKeyword,
+    getMessages,
+    verifyCode,
+    setPledges,
+  };
 };
