@@ -48,7 +48,7 @@ function Modal({ children, id, ariaLabel, show, handleClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={ariaLabel}
-        show={show}
+        show={true}
         enter="transition ease-out duration-200"
         enterStart="opacity-0 scale-95"
         enterEnd="opacity-100 scale-100"

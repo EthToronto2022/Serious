@@ -12,6 +12,7 @@ import Sticky from 'sticky-js'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import PageNotFound from './pages/PageNotFound'
+import Dashboard from './pages/Dashboard'
 
 function getLibrary(provider) {
   return new Web3Provider(provider)
@@ -42,6 +43,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Web3ReactProvider>
