@@ -4,6 +4,13 @@ require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 
 module.exports = {
+  networks: {
+    polygon: {
+      url: "https://matic-mumbai.chainstacklabs.com",
+      accounts: [process.env.PRIVATE_KEY],
+      chainId: 80001,
+    },
+  },
   solidity: {
     version: "0.8.15",
     settings: {
