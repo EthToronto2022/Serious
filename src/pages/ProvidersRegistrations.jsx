@@ -1,7 +1,19 @@
+import { useState } from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
+import { Link } from "react-router-dom";
 
 const ProvidersRegistrations = () => {
+  const [name, setName] = useState("");
+  const [serviceCategory, setServiceCategory] = useState("");
+  const [url, setUrl] = useState("");
+  const [logoUrl, setLogoUrl] = useState("");
+  const [description, setDescription] = useState("");
+
+  console.log('------> ', name, serviceCategory, url, logoUrl, description)
+
+  const shouldDisableSubmit = name.length === 0 || serviceCategory.length === 0 || url.length === 0 || logoUrl.length === 0 || description.length === 0;
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
@@ -27,6 +39,8 @@ const ProvidersRegistrations = () => {
                       Company Name
                     </label>
                     <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       type="text"
                       name="first-name"
                       id="first-name"
@@ -43,6 +57,8 @@ const ProvidersRegistrations = () => {
                       Service category
                     </label>
                     <select
+                      value={serviceCategory}
+                      onChange={(e) => setServiceCategory(e.target.value)}
                       id="country"
                       name="country"
                       autocomplete="country-name"
@@ -65,10 +81,12 @@ const ProvidersRegistrations = () => {
                       Website URL
                     </label>
                     <input
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
                       type="text"
-                      name="email-address"
-                      id="email-address"
-                      autocomplete="email"
+                      name="website-url"
+                      id="website-url"
+                      autocomplete="website-url"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -81,10 +99,12 @@ const ProvidersRegistrations = () => {
                       Logo URL
                     </label>
                     <input
+                      value={logoUrl}
+                      onChange={(e) => setLogoUrl(e.target.value)}
                       type="text"
-                      name="email-address"
-                      id="email-address"
-                      autocomplete="email"
+                      name="logo-url"
+                      id="logo-url"
+                      autocomplete="logo-url"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                     />
                   </div>
@@ -97,13 +117,21 @@ const ProvidersRegistrations = () => {
                       Company description and value proposition
                     </label>
                     <input
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                       type="text"
-                      name="street-address"
-                      id="street-address"
-                      autocomplete="street-address"
+                      name="company-description"
+                      id="company-description"
+                      autocomplete="company-description"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md h-24"
                     />
                   </div>
+                    {shouldDisableSubmit ? null : <Link
+                        to={`/providers-dashboard`}
+                        className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 mt-4"
+                        >
+                        Submit
+                    </Link>}
                 </div>
               </div>
             </div>
