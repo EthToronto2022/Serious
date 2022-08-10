@@ -15,11 +15,6 @@ function ProductList() {
     resetConfig();
   }, []);
 
-  useEffect(() => {
-    console.log("here");
-    !loading && console.log(keywords);
-  }, [loading]);
-
   const filteredKeywords = useMemo(
     () => PRODUCT_LIST.filter((product) => !keywords.includes(product.id)),
     [keywords]
@@ -47,7 +42,7 @@ function ProductList() {
         </div>
       </div>
       <div className="grid grid-cols-2 justify-center items-center pt-5">
-        {filteredKeywords.map(({ id, title, iconPath }, index) => (
+        {filteredKeywords.map(({ id, title, icon }, index) => (
           <div
             onClick={() => {
               setConfig({
@@ -61,7 +56,7 @@ function ProductList() {
               selectedIndex === index && "bg-slate-200 border-blue-600"
             }`}
           >
-            <img src={iconPath} height={25} width={25} />
+            {icon}
             <h3 className="font-light text-zinc-600">{title}</h3>
           </div>
         ))}

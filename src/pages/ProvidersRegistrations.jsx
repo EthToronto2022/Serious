@@ -10,8 +10,6 @@ const ProvidersRegistrations = () => {
   const [logoUrl, setLogoUrl] = useState("");
   const [description, setDescription] = useState("");
 
-  console.log('------> ', name, serviceCategory, url, logoUrl, description)
-
   const shouldDisableSubmit = name.length === 0 || serviceCategory.length === 0 || url.length === 0 || logoUrl.length === 0 || description.length === 0;
 
   return (
