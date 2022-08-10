@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { Contract, ethers } from "ethers";
-import { chainIdToContract, networks } from "./networks";
+import { chainIdToContract, networks, getContract } from "./networks";
 
 const useContract = () => {
   const { account, library, chainId } = useWeb3React();
@@ -11,11 +11,12 @@ const useContract = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    if (account) {
-      await getSelectedKeywords();
-      await getMessages()
-    }
-
+    (async () => {
+      if (account) {
+        await getSelectedKeywords();
+        await getMessages();
+      }
+    })();
   }, [account]);
 
   const getSelectedKeywords = async () => {
@@ -42,7 +43,6 @@ const useContract = () => {
 
       const messages = await contract.getMessages(account);
       setMessages(messages);
-
     } catch (err) {
       setMessages([]);
     }
@@ -64,13 +64,7 @@ const useContract = () => {
     }
 
     setLoading(false);
-  }
+  };
 
-  const withdrawForEscrow = async (keyword) => {
-
-  }
-
-
-
-
+  const withdrawForEscrow = async (keyword) => {};
 };
