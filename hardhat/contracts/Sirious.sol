@@ -16,20 +16,16 @@ contract Sirious {
         string image;
     }
 
-    
-    struct CommitedCompany{
+    struct Pledge{
         string name;
         bool rated;
         bool codeVerified;
     }
     
-
     struct Message{
         string link; 
         string hashedCode;
         Company company;
-        bool codeVerified;
-        bool rated;
     }
 
     modifier onlyAdmin{
@@ -37,17 +33,19 @@ contract Sirious {
     }
     
     mapping(address => bool) isAdmin;
-    mapping(address => unit256) escrow;
-    mapping(address => Message[]) userToMessages;
-    mapping(address => Company[]) userToCompanies;
+    //user => (keyword => escrow amt)
+    mapping(address => mapping(string => unit256)) escrow;
+    //mapping(address => Message[]) userToMessages;
+    //mapping(address => Company[]) userToCompanies;
     mapping(string =>  Company[]) keywords;
     mapping(string =>  Company) nameToCompany;
     mapping(address => uint256) userScore;
     mapping(string => Message) linkToMessage;
     mapping(string => bool) companyRemoved;
+    mapping(Pledge => Message) pledgeToMessage;
     //for every keyword, any given user can be in escrow for some companies
     //mapping(keyword => mapping(user => Company[]))
-    mapping(string => mapping(address => commitedCompany[])) commitment;
+    mapping(string => mapping(address => Pledge[])) pledges;
 
 
     function addAdmin(address _admin) public onlyAdmin{
@@ -71,8 +69,8 @@ contract Sirious {
         return company;
     }
 
-    function getCommitmentsByKeyword(string _keyword) internal returns (CommitedCompanies[] memory) {
-        CommittedCompanies[] memory companies = commitments[_keyword][msg.sender];
+    function getPledgesByKeyword(string _keyword) internal returns (Pledge[] memory) {
+        Pledge[] memory companies = pledges[_keyword][msg.sender];
         return companies;
     }
     
@@ -92,7 +90,7 @@ contract Sirious {
             company.serviceRating += _rating;
         }
 
-        CommittedCompanies[] memory companies = getCommitmentsByKeyword(company.keyword);
+        Pledge[] memory companies = getPledgesByKeyword(company.keyword);
 
         for (uint256 i; i <= companies.length; i++){
             if(companies[i].name == _name){
@@ -143,7 +141,6 @@ contract Sirious {
     function setMessage(address _client, string memory _link, string memory _hashedCode, string memory _name) public {
         Company memory company = getCompany(_name);
         Message message = new Message(_link, _hashedCode, company);
-        userToMessages[_client].push(message);
         linkToMessage[_link] = message;
     }
 
@@ -153,11 +150,45 @@ contract Sirious {
         
     }
 
-    function checkVerification(string _keyword) {
+    function checkVerification(string _keyword) internal returns (bool) {
         //we want to make sure their code matches and they rated all their companies
 
-        
+        Pledges[] memory pledges = getPledgesByKeyword(_keyword);
+
+        for (uint256 i; i <= pledges.length; i++) {
+            if(pledges[i].rated == false || pledges[i].codeVerified == false) {
+                return false;
+            }
+            return true;
+        }
     }
 
-    //function withdrawFromEscrow(){}
+    function withdrawFromEscrow(string _keyword) public {
+        Pledges[] pledges = getPledgesByKeyword(_keyword);
+        require(pledges.length != 0, "no pledges");
+        require(checkVerification(_keyword), "not complete");
+
+        uint256 owed = escrow[msg.sender];
+        //re-entrancy attack guard
+        escrow[msg.sender] = 0;
+        msg.sender.transfer(owed);
+
+        for (uint256 i; i <= pledges.length; i++) {
+
+            Message memory message = pledgeToMessage[i];
+            delet linkToMessage[message.link];
+            delete pledgeToMessage[pledges[i]];
+        }
+        delete pledges[_keyword][msg.sender];
+        delete pledges[_keyword];
+    }
+
+
+
+
+
+
+
+
+
 }
