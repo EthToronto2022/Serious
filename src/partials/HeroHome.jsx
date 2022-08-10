@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import Modal from '../utils/Modal'
+import React, { useState } from "react";
+import Modal from "../utils/Modal";
 
-import HeroImage from '../images/hero-image-01.png'
+import HeroImage from "../images/hero-image-01.png";
 
 function HeroHome() {
-  const [videoModalOpen, setVideoModalOpen] = useState(false)
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   return (
     <section className="relative">
@@ -48,8 +48,8 @@ function HeroHome() {
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
-              Save
-              {" "}<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
+              Save{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
                 money
               </span>
             </h1>
@@ -176,7 +176,7 @@ function HeroHome() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default HeroHome
+export default HeroHome;

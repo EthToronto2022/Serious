@@ -1,23 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
-function Accordion({ children, tag = 'li', title, active }) {
-  const [accordionOpen, setAccordionOpen] = useState(false)
-  const accordion = useRef(null)
-  const Component = tag
+function Accordion({ children, tag = "li", title, active }) {
+  const [accordionOpen, setAccordionOpen] = useState(false);
+  const accordion = useRef(null);
+  const Component = tag;
 
   useEffect(() => {
-    setAccordionOpen(active)
+    setAccordionOpen(active);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accordion])
+  }, [accordion]);
 
   return (
     <Component>
       <button
         className="flex items-center w-full text-lg font-medium text-left py-5 border-t border-gray-200"
         onClick={(e) => {
-          e.preventDefault()
-          setAccordionOpen(!accordionOpen)
+          e.preventDefault();
+          setAccordionOpen(!accordionOpen);
         }}
         aria-expanded={accordionOpen}
       >
@@ -32,7 +32,7 @@ function Accordion({ children, tag = 'li', title, active }) {
             height="2"
             rx="1"
             className={`transform origin-center transition duration-200 ease-out ${
-              accordionOpen && '!rotate-180'
+              accordionOpen && "!rotate-180"
             }`}
           />
           <rect
@@ -41,7 +41,7 @@ function Accordion({ children, tag = 'li', title, active }) {
             height="2"
             rx="1"
             className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-              accordionOpen && '!rotate-180'
+              accordionOpen && "!rotate-180"
             }`}
           />
         </svg>
@@ -59,14 +59,14 @@ function Accordion({ children, tag = 'li', title, active }) {
         <p className="pb-5">{children}</p>
       </div>
     </Component>
-  )
+  );
 }
 
-export default Accordion
+export default Accordion;
 
 Accordion.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string.isRequired]),
   tag: PropTypes.string,
   title: PropTypes.string.isRequired,
   active: PropTypes.bool,
-}
+};

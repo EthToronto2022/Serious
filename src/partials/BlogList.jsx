@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import NewsAuthor01 from '../images/news-author-01.jpg'
-import NewsAuthor02 from '../images/news-author-02.jpg'
-import NewsAuthor03 from '../images/news-author-03.jpg'
-import NewsAuthor04 from '../images/news-author-04.jpg'
-import NewsAuthor06 from '../images/news-author-06.jpg'
+import NewsAuthor01 from "../images/news-author-01.jpg";
+import NewsAuthor02 from "../images/news-author-02.jpg";
+import NewsAuthor03 from "../images/news-author-03.jpg";
+import NewsAuthor04 from "../images/news-author-04.jpg";
+import NewsAuthor06 from "../images/news-author-06.jpg";
 
 function BlogList() {
   return (
@@ -660,7 +660,7 @@ function BlogList() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default BlogList
+export default BlogList;

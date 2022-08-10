@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import TeamImage01 from '../images/team-mosaic-01.jpg'
-import TeamImage02 from '../images/team-mosaic-02.jpg'
-import TeamImage03 from '../images/team-mosaic-03.jpg'
-import TeamImage04 from '../images/team-mosaic-04.jpg'
+import TeamImage01 from "../images/team-mosaic-01.jpg";
+import TeamImage02 from "../images/team-mosaic-02.jpg";
+import TeamImage03 from "../images/team-mosaic-03.jpg";
+import TeamImage04 from "../images/team-mosaic-04.jpg";
 
 function TeamImages() {
   return (
@@ -13,7 +13,7 @@ function TeamImages() {
           <div className="relative w-full h-0 pb-3/4">
             <figure
               className="absolute h-auto"
-              style={{ top: '45%', width: '41.67%', maxWidth: '320px' }}
+              style={{ top: "45%", width: "41.67%", maxWidth: "320px" }}
               data-aos="fade-right"
             >
               <img
@@ -25,7 +25,7 @@ function TeamImages() {
             </figure>
             <figure
               className="relative mx-auto h-auto"
-              style={{ width: '78.13%', maxWidth: '600px' }}
+              style={{ width: "78.13%", maxWidth: "600px" }}
               data-aos="fade-down"
               data-aos-delay="150"
             >
@@ -39,10 +39,10 @@ function TeamImages() {
             <figure
               className="absolute h-auto"
               style={{
-                top: '8.5%',
-                right: '0',
-                width: '32.55%',
-                maxWidth: '250px',
+                top: "8.5%",
+                right: "0",
+                width: "32.55%",
+                maxWidth: "250px",
               }}
               data-aos="fade-left"
               data-aos-delay="300"
@@ -57,10 +57,10 @@ function TeamImages() {
             <figure
               className="absolute h-auto"
               style={{
-                bottom: '0',
-                right: '20%',
-                width: '25.52%',
-                maxWidth: '196px',
+                bottom: "0",
+                right: "20%",
+                width: "25.52%",
+                maxWidth: "196px",
               }}
               data-aos="zoom-y-out"
               data-aos-delay="450"
@@ -76,7 +76,7 @@ function TeamImages() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default TeamImages
+export default TeamImages;

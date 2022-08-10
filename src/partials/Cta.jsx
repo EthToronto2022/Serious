@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Cta() {
   return (
@@ -34,7 +34,7 @@ function Cta() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Cta
+export default Cta;

@@ -1,5 +1,5 @@
-import React from 'react'
-import Accordion from '../utils/Accordion'
+import React from "react";
+import Accordion from "../utils/Accordion";
 
 function Faqs() {
   return (
@@ -54,7 +54,7 @@ function Faqs() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Faqs
+export default Faqs;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import Header from '../partials/Header'
-import HeroHome from '../partials/HeroHome'
-import Footer from '../partials/Footer'
+import Header from "../partials/Header";
+import HeroHome from "../partials/HeroHome";
+import Footer from "../partials/Footer";
 
 function Home() {
   return (
@@ -19,7 +19,7 @@ function Home() {
       {/*  Site footer */}
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../partials/Header'
-import Footer from '../partials/Footer'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock } from '@fortawesome/free-solid-svg-icons/faLock'
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
-import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
+import React, { useEffect, useState } from "react";
+import Header from "../partials/Header";
+import Footer from "../partials/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock } from "@fortawesome/free-solid-svg-icons/faLock";
+import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
+import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
 
 const mockBusinesess = [
-  { name: 'Ratehub Mortgage', completed: true },
+  { name: "Ratehub Mortgage", completed: true },
   {
-    name: 'True North Mortgage',
+    name: "True North Mortgage",
     completed: true,
-    tasks: ['Preview Personalized Offer', 'Attend Video Appointment'],
+    tasks: ["Preview Personalized Offer", "Attend Video Appointment"],
   },
-]
+];
 
-const pledge = 0.01
+const pledge = 0.01;
 
 function Dashboard() {
-  const [businesess, setBusinesess] = useState(mockBusinesess)
-  const isAllCompleted = businesess.every((business) => business.completed)
+  const [businesess, setBusinesess] = useState(mockBusinesess);
+  const isAllCompleted = businesess.every((business) => business.completed);
 
   const completedRatings = businesess.every(
     (b) => b.ratings && Object.values(b.ratings).every((r) => r > 0)
-  )
+  );
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -77,7 +77,7 @@ function Dashboard() {
                       {isAllCompleted ? (
                         <button
                           className={`btn-sm text-gray-200 hover:bg-gray-800 w-full ${
-                            completedRatings ? 'bg-gray-800' : 'bg-red-600'
+                            completedRatings ? "bg-gray-800" : "bg-red-600"
                           }`}
                           disabled={!completedRatings}
                         >
@@ -130,10 +130,11 @@ function Dashboard() {
                     {isAllCompleted ? (
                       <RatingMenu
                         onUpdate={(ratings) => {
-                          const copy = [...businesess]
+                          const copy = [...businesess];
                           if (businesess.indexOf(business) !== -1) {
-                            copy[businesess.indexOf(business)].ratings = ratings
-                            setBusinesess(copy)
+                            copy[businesess.indexOf(business)].ratings =
+                              ratings;
+                            setBusinesess(copy);
                           }
                         }}
                       />
@@ -154,17 +155,17 @@ function Dashboard() {
 
       <Footer />
     </div>
-  )
+  );
 }
 
 function RatingMenu({ onUpdate }) {
-  const [service, setService] = useState(0)
-  const [price, setPrice] = useState(0)
-  const [accuracy, setAccuracy] = useState(0)
+  const [service, setService] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [accuracy, setAccuracy] = useState(0);
 
   useEffect(() => {
-    onUpdate({ service, price, accuracy })
-  }, [service, price, accuracy])
+    onUpdate({ service, price, accuracy });
+  }, [service, price, accuracy]);
 
   return (
     <div className="w-full flex flex-col gap-1 mt-2">
@@ -181,23 +182,23 @@ function RatingMenu({ onUpdate }) {
         <StarLevel onSubmit={(x) => setAccuracy(x)} />
       </div>
     </div>
-  )
+  );
 }
 
 function StarLevel({ onSubmit }) {
-  const [starLevel, setStarLevel] = useState(0)
-  const [hoveringLevel, setHoveringLevel] = useState(0)
+  const [starLevel, setStarLevel] = useState(0);
+  const [hoveringLevel, setHoveringLevel] = useState(0);
 
   useEffect(() => {
-    onSubmit(starLevel)
-  }, [starLevel])
+    onSubmit(starLevel);
+  }, [starLevel]);
 
   return (
     <div className="flex gap-0.5">
       {Array(5)
         .fill(0)
         .map((_, index) => {
-          const level = index + 1
+          const level = index + 1;
           return (
             <div
               key={level}
@@ -210,15 +211,15 @@ function StarLevel({ onSubmit }) {
                 icon={faStar}
                 className={`w-4 h-4 ${
                   starLevel >= level || hoveringLevel >= level
-                    ? 'text-yellow-500'
-                    : 'text-gray-500'
+                    ? "text-yellow-500"
+                    : "text-gray-500"
                 }`}
               />
             </div>
-          )
-        })}{' '}
+          );
+        })}{" "}
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

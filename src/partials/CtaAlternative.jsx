@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function CtaAlternative() {
   return (
@@ -33,7 +33,7 @@ function CtaAlternative() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default CtaAlternative
+export default CtaAlternative;

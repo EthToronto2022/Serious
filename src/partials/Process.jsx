@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Process() {
   return (
@@ -71,7 +71,7 @@ function Process() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Process
+export default Process;
