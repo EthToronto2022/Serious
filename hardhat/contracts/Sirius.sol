@@ -28,7 +28,7 @@ contract Sirius {
   }
 
   modifier onlyAdmin() {
-    require(isAdmin[msg.sender], 'Not admin');
+    require(isAdmin[msg.sender], "Not admin");
     _;
   }
 
@@ -157,7 +157,7 @@ contract Sirius {
     );
 
     delete nameToCompany[company.name];
-    
+
     Company[] memory companies = keywords[company.keyword];
 
     for (uint256 i; i <= companies.length; i++) {
@@ -194,14 +194,20 @@ contract Sirius {
   }
 
   function setKeyword(string memory _keyword) public payable {
-      require(msg.value == creationFee, "Invalid fee");
+    require(msg.value == creationFee, "Invalid fee");
+    activeKeywords[msg.sender].push(_keyword);
+    escrow[msg.sender][_keyword] = msg.value;
   }
 
   //companies need to know WHO to contact (company name to pledges or user addrs)
 
-  function getInterestedUsers(string memory _name) public returns (address[] memory) {
-      address[] memory users = interestedUsers[_name];
-      return users;
+  function getInterestedUsers(string memory _name)
+    public
+    view
+    returns (address[] memory)
+  {
+    address[] memory users = interestedUsers[_name];
+    return users;
   }
 
   function verifyCode(string memory _word, string memory _link) public view {
@@ -218,18 +224,22 @@ contract Sirius {
 
     Pledge[] memory pledgesArr = pledges[company.keyword][msg.sender];
 
-    for(uint256 i; i <= pledgesArr.length; i++){
-        if(
+    for (uint256 i; i <= pledgesArr.length; i++) {
+      if (
         keccak256(abi.encodePacked(pledgesArr[i].name)) ==
         keccak256(abi.encodePacked(message.name))
-        ){
-            pledgesArr[i].codeVerified = true;
-            return;
-        }
+      ) {
+        pledgesArr[i].codeVerified = true;
+        return;
+      }
     }
   }
 
-  function checkVerification(string memory _keyword) internal view returns (bool) {
+  function checkVerification(string memory _keyword)
+    internal
+    view
+    returns (bool)
+  {
     Pledge[] memory pledgesArr = getPledgesByKeyword(_keyword);
 
     for (uint256 i; i <= pledgesArr.length; i++) {

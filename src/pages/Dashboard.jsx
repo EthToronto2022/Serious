@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons/faLock";
 import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
 import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
+import { useUserContract } from "../utils/contractInterfaceUser.js";
 
 const mockBusinesess = [
   { name: "Ratehub Mortgage", completed: true },
@@ -18,6 +19,10 @@ const mockBusinesess = [
 const pledge = 0.01;
 
 function Dashboard() {
+  const { loading, keywords } = useUserContract();
+
+  console.log(keywords);
+
   const [businesess, setBusinesess] = useState(mockBusinesess);
   const isAllCompleted = businesess.every((business) => business.completed);
 

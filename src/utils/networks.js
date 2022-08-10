@@ -1,4 +1,6 @@
-const SiriusContract = "../contractArtifacts/hardhat/Sirious.json";
+import { Contract, ethers } from "ethers";
+
+import SiriusContract from "../contractArtifacts/hardhat/contracts/Sirius.sol/Sirious.json";
 
 export const ETHEREUM = {
   chainId: "0x1",
@@ -94,6 +96,10 @@ const BINANCE = {
   blockExplorerUrls: ["https://www.bscscan.com/"],
 };
 
+const MUMBAI = {
+  rpcUrls: ["https://matic-mumbai.chainstacklabs.com"],
+};
+
 export const networks = {
   1: ETHEREUM,
   10: OPTIMISM,
@@ -101,6 +107,7 @@ export const networks = {
   137: POLYGON,
   42161: ARBITRUM,
   43114: AVALANCHE,
+  80001: MUMBAI,
 };
 
 export const chainIdToContract = {
@@ -112,6 +119,7 @@ export const getContract = (chainId, provider) => {
   return new Contract(
     chainIdToContract[chainId],
     SiriusContract.abi,
-    provider ?? new ethers.JsonRpcProvider(networks[chainId].rpcUrls[0])
+    provider ??
+      new ethers.providers.JsonRpcProvider(networks[chainId]?.rpcUrls?.[0])
   );
 };
