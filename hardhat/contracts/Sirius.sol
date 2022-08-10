@@ -37,21 +37,21 @@ contract Sirius {
   mapping(address => bool) isAdmin;
 
   //user => (keyword => escrow amt)
-  mapping(address => mapping(string => uint256)) escrow;
-  mapping(string => Company[]) keywords;
-  mapping(string => Company) nameToCompany;
-  mapping(address => uint256) userScore;
-  mapping(string => Message) linkToMessage;
-  mapping(string => bool) companyRemoved;
-  mapping(address => string[]) activeKeywords;
+  mapping(address => mapping(string => uint256)) public escrow;
+  mapping(string => Company[]) public keywords;
+  mapping(string => Company) public nameToCompany;
+  mapping(address => uint256) public userScore;
+  mapping(string => Message) public linkToMessage;
+  mapping(string => bool) public companyRemoved;
+  mapping(address => string[]) public activeKeywords;
 
   //company name to 'raised hand' users
-  mapping(string => address[]) interestedUsers;
+  mapping(string => address[]) public interestedUsers ;
 
   //by user
-  mapping(address => mapping(string => Message[])) userToMessages;
+  mapping(address => mapping(string => Message[])) public userToMessages;
   //by keyword
-  mapping(string => mapping(address => Pledge[])) pledges;
+  mapping(string => mapping(address => Pledge[])) public pledges;
 
   function addAdmin(address _admin) public onlyAdmin {
     isAdmin[_admin] = true;

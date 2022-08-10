@@ -22,6 +22,8 @@ const ProviderSelect = () => {
     setConfig({ ...config, selectedProviders: newSetInstance });
   };
 
+  console.log(config)
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}

@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
+<<<<<<< HEAD
 import { ethers } from "ethers";
 import { getContract } from "./networks";
+=======
+import { Contract, ethers } from "ethers";
+import { chainIdToContract, networks, getContract } from "./networks";
+>>>>>>> 14efc798f416217e6a28baadafbd27891486c7b8
 
 export const useUserContract = () => {
   const { account, library, chainId } = useWeb3React();
@@ -66,6 +71,7 @@ export const useUserContract = () => {
     }
     setLoading(false);
   };
+<<<<<<< HEAD
 
   const verifyCode = async (keyword) => {
     setLoading(true);
@@ -85,4 +91,8 @@ export const useUserContract = () => {
   const withdrawForEscrow = async (keyword) => {};
 
   return { loading, keywords, messages, setKeyword, getMessages, verifyCode };
+=======
+
+  const withdrawForEscrow = async (keyword) => {};
+>>>>>>> 14efc798f416217e6a28baadafbd27891486c7b8
 };
