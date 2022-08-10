@@ -5,7 +5,9 @@ import Dropdown from '../utils/Dropdown'
 import { useWeb3React } from '@web3-react/core'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWallet } from '@fortawesome/free-solid-svg-icons/faWallet'
+import { faWallet } from '@fortawesome/free-solid-svg-icons/faWallet';
+import mainLogo from '../images/logo.png';
+
 
 const Injected = new InjectedConnector()
 
@@ -74,33 +76,9 @@ function Header() {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link to="/" className="block" aria-label="Cruip">
-              <svg
-                className="w-8 h-8"
-                viewBox="0 0 32 32"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <radialGradient
-                    cx="21.152%"
-                    cy="86.063%"
-                    fx="21.152%"
-                    fy="86.063%"
-                    r="79.941%"
-                    id="header-logo"
-                  >
-                    <stop stopColor="#4FD1C5" offset="0%" />
-                    <stop stopColor="#81E6D9" offset="25.871%" />
-                    <stop stopColor="#338CF5" offset="100%" />
-                  </radialGradient>
-                </defs>
-                <rect
-                  width="32"
-                  height="32"
-                  rx="16"
-                  fill="url(#header-logo)"
-                  fillRule="nonzero"
-                />
-              </svg>
+            {/* <button class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ..."> */}
+              <img  src={mainLogo} alt="fireSpot" width={128} height={128}/>
+            {/* </button> */}
             </Link>
           </div>
 
@@ -122,6 +100,14 @@ function Header() {
                   className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
                 >
                   Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/providers"
+                  className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                >
+                  Providers
                 </Link>
               </li>
               {/* 1st level: hover */}

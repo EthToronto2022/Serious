@@ -25,18 +25,18 @@ function ProductList() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 justify-center items-center pt-5">
-        {PRODUCT_LIST.map(({ id, title, iconPath }, index) => (
+      <div className="justify-center items-center pt-5">
+        {PRODUCT_LIST.map(({ id, title, icon }, index) => (
           <div
             onClick={() => {
               setSelectedIndex(index === selectedIndex ? null : index)
             }}
             key={id}
-            className={`flex items-center w-40 justify-between px-3 py-1 mx-2 rounded-md shadow-lg hover:shadow-xl duration-300 mb-4 border-2 border-transparent ${
+            className={`flex items-center px-3 py-1 mx-2 gap-4 h-12 rounded-md shadow-lg hover:shadow-xl duration-300 mb-4 border-2 border-transparent ${
               selectedIndex === index && 'bg-slate-200 border-blue-600'
             }`}
           >
-            <img src={iconPath} height="35" width="35" />
+            {icon}
             <h3 className="font-light text-zinc-600">{title}</h3>
           </div>
         ))}
