@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
-<<<<<<< HEAD
 import { ethers } from "ethers";
 import { getContract } from "./networks";
-=======
-import { Contract, ethers } from "ethers";
-import { chainIdToContract, networks, getContract } from "./networks";
->>>>>>> 14efc798f416217e6a28baadafbd27891486c7b8
 
 export const useUserContract = () => {
   const { account, library, chainId } = useWeb3React();
