@@ -13,6 +13,8 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import PageNotFound from './pages/PageNotFound'
 import Dashboard from './pages/Dashboard'
+import Providers from './pages/Providers';
+import ProvidersRegistrations from './pages/ProvidersRegistrations';
 
 function getLibrary(provider) {
   return new Web3Provider(provider)
@@ -44,6 +46,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/providers" element={<Providers />} />
+        <Route path="/providers-registration" element={<ProvidersRegistrations />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Web3ReactProvider>
