@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import Checkbox from "../partials/Checkbox";
+import ProgressBar from "../partials/ProgressBar";
 
 import { useBuyerFlow } from "../context/buyerFlow";
 
@@ -19,6 +20,17 @@ function Products() {
 
       {/*  Page content */}
       <main className="grow">
+        <div className="flex flex-col items-center justify-center">
+          <div className="">
+            <div className="">
+              <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+                <ProgressBar />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div className="h-auto w-screen">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-8 md:pt-40 md:pb-12">

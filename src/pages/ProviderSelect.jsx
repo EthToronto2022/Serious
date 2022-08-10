@@ -8,6 +8,7 @@ import Footer from "../partials/Footer";
 import { PROVIDER_LIST } from "../constants";
 import { useBuyerFlow } from "../context/buyerFlow";
 import StarRating from "../partials/StarRating";
+import ProgressBar from "../partials/ProgressBar";
 
 const ProviderSelect = () => {
   const { config, setConfig } = useBuyerFlow();
@@ -29,6 +30,15 @@ const ProviderSelect = () => {
 
       {/*  Page content */}
       <main className="grow">
+        <div className="flex flex-col items-center justify-center">
+          <div className="">
+            <div className="">
+              <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+                <ProgressBar />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="h-auto w-screen">
           <div className="flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-8 md:pt-40 md:pb-12">
