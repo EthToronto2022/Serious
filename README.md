@@ -3,7 +3,7 @@
 ![Homepage](src/screenshots/1.png?raw=true "Homepage")
 
 ## Demo
-![Demo](https://www.loom.com/share/10ef2c9e762e49b5bbe8790e9a143ea5 "Demo")
+[Demo](https://www.loom.com/share/10ef2c9e762e49b5bbe8790e9a143ea5 )
 
 ## Instructions
 
