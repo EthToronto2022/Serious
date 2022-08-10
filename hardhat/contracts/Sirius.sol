@@ -40,6 +40,7 @@ contract Sirius {
   mapping(address => uint256) private userScore;
   mapping(string => Message) private linkToMessage;
   mapping(string => bool) private companyRemoved;
+  mapping(address => string[]) activeKeywords;
 
   //for every keyword, any given user can be in escrow for some companies
   //mapping(keyword => mapping(user => Company[]))
@@ -187,6 +188,7 @@ contract Sirius {
     for (uint256 i; i <= _companies.length; i++) {
       Pledge memory pledge = Pledge(_companies[i].name, false, false);
       pledges[_companies[i].keyword][msg.sender].push(pledge);
+      activeKeywords[msg.sender].push(companies[i].keyword);
     }
   }
 
