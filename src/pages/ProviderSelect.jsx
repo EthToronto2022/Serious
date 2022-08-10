@@ -37,7 +37,7 @@ const ProviderSelect = () => {
     try {
       const keyword = product.id;
 
-      //await setKeyword(keyword);
+      await setKeyword(keyword);
       await setPledges(companies);
 
       navigate("/dashboard");

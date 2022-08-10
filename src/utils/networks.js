@@ -112,7 +112,7 @@ export const networks = {
 
 export const chainIdToContract = {
   1: "0x1a9Ae54bf1F89Ee447f7916B180140188dC9d197",
-  80001: "0x2f45DA1658E57a213fe1c611c8139E3245f99326",
+  80001: "0xC584E5b9a34D48147EEA8572F4b76C67a90C265A",
 };
 
 export const getContract = (chainId, provider) => {
