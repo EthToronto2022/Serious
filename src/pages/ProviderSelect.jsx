@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Dropdown from "../utils/Dropdown";
 import Header from "../partials/Header";
@@ -29,7 +30,7 @@ const ProviderSelect = () => {
       {/*  Page content */}
       <main className="grow">
         <div className="h-auto w-screen">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col items-center justify-center max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-8 md:pt-40 md:pb-12">
               {/* Section header */}
               <div className="max-w-3xl mx-auto text-center">
@@ -45,39 +46,47 @@ const ProviderSelect = () => {
                 </p>
               </div>
             </div>
+            {PROVIDER_LIST.map((provider, idx) => {
+              const { name, description } = provider;
+
+              return (
+                <Dropdown
+                  title={name}
+                  onPress={() => onPress(idx)}
+                  isSelected={config.selectedProviders.has(idx)}
+                >
+                  <div className="flex w-full justify-between my-6">
+                    <p className="w-96">{description}</p>
+                    <ul>
+                      <li>
+                        <label className="font-xs text-gray-700">Service</label>
+                        <StarRating rating={3} />
+                      </li>
+                      <li>
+                        <label className="font-xs text-gray-700">Pricing</label>
+                        <StarRating rating={2} />
+                      </li>
+                      <li>
+                        <label className="font-xs text-gray-700">
+                          Offer Accuracy
+                        </label>
+                        <StarRating rating={4} />
+                      </li>
+                    </ul>
+                  </div>
+                </Dropdown>
+              );
+            })}
+            {config.selectedProviders.size > 0 && (
+              <Link
+                to={"/dashboard"}
+                className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 mt-8 animate-fade"
+              >
+                Next
+              </Link>
+            )}
           </div>
         </div>
-        {PROVIDER_LIST.map((provider, idx) => {
-          const { name, description } = provider;
-
-          return (
-            <Dropdown
-              title={name}
-              onPress={() => onPress(idx)}
-              isSelected={config.selectedProviders.has(idx)}
-            >
-              <div className="flex w-full justify-between">
-                <p className="w-96">{description}</p>
-                <ul>
-                  <li>
-                    <label className="font-xs text-gray-700">Service</label>
-                    <StarRating rating={3} />
-                  </li>
-                  <li>
-                    <label className="font-xs text-gray-700">Pricing</label>
-                    <StarRating rating={2} />
-                  </li>
-                  <li>
-                    <label className="font-xs text-gray-700">
-                      Offer Accuracy
-                    </label>
-                    <StarRating rating={4} />
-                  </li>
-                </ul>
-              </div>
-            </Dropdown>
-          );
-        })}
       </main>
 
       {/*  Site footer */}
