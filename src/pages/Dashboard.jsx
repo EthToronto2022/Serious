@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../partials/Header'
 import Footer from '../partials/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock } from '@fortawesome/free-solid-svg-icons/faLock'
-import { faKeyboard } from '@fortawesome/free-solid-svg-icons/faKeyboard'
-import Modal from '../utils/Modal'
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 
-const busineses = [
+const mockBusinesess = [
   { name: 'Ratehub Mortgage', completed: true },
   {
     name: 'True North Mortgage',
-    completed: false,
+    completed: true,
     tasks: ['Preview Personalized Offer', 'Attend Video Appointment'],
   },
 ]
@@ -19,7 +18,12 @@ const busineses = [
 const pledge = 0.01
 
 function Dashboard() {
-  const [inputCodeModalOpen, setInputCodeModalOpen] = useState(false)
+  const [businesess, setBusinesess] = useState(mockBusinesess)
+  const isAllCompleted = businesess.every((business) => business.completed)
+
+  const completedRatings = businesess.every(
+    (b) => b.ratings && Object.values(b.ratings).every((r) => r > 0)
+  )
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -69,18 +73,33 @@ function Dashboard() {
                         />
                       </div>
                     </div>
-                    <div className="flex gap-2 btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800">
-                      <input
-                        placeholder="Input Code"
-                        className="text-gray-200 bg-gray-900 hover:bg-gray-800 ml-4"
-                      />
-                      <button className=" hover:bg-gray-800 mr-4">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          className="w-4 h-4"
-                          data-aos="zoom-y-out"
-                        />
-                      </button>
+                    <div>
+                      {isAllCompleted ? (
+                        <button
+                          className={`btn-sm text-gray-200 hover:bg-gray-800 w-full ${
+                            completedRatings ? 'bg-gray-800' : 'bg-red-600'
+                          }`}
+                          disabled={!completedRatings}
+                        >
+                          Rate and Withdraw Pledge
+                        </button>
+                      ) : (
+                        <div className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 w-full">
+                          <div className="flex gap-2">
+                            <input
+                              placeholder="Input Code"
+                              className="text-gray-200 bg-gray-900 hover:bg-gray-800 ml-4"
+                            />
+                            <button className=" hover:bg-gray-800 mr-4">
+                              <FontAwesomeIcon
+                                icon={faCheck}
+                                className="w-4 h-4"
+                                data-aos="zoom-y-out"
+                              />
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -90,7 +109,7 @@ function Dashboard() {
         </div>
         <div className="max-w-lg w-full mb-4">
           <div className="bg-white rounded-md space-y-px">
-            {busineses.map((business) => (
+            {businesess.map((business) => (
               <label className="rounded-md relative border p-4 flex cursor-pointer focus:outline-none items-center">
                 <input
                   type="radio"
@@ -100,16 +119,25 @@ function Dashboard() {
                   aria-labelledby={`${business.name}-label`}
                   aria-describedby={`${business.name}-description`}
                 />
-                <span className="ml-3 flex flex-col">
+                <span className="ml-3 flex flex-col w-full">
                   <span
                     id={`${business.name}-label`}
                     className="block text-sm font-medium h4"
                   >
                     {business.name}
                   </span>
-
                   <div id={`${business.name}-description`}>
-                    {business.tasks ? (
+                    {isAllCompleted ? (
+                      <RatingMenu
+                        onUpdate={(ratings) => {
+                          const copy = [...businesess]
+                          if (businesess.indexOf(business) !== -1) {
+                            copy[businesess.indexOf(business)].ratings = ratings
+                            setBusinesess(copy)
+                          }
+                        }}
+                      />
+                    ) : business.tasks ? (
                       business.tasks.map((task) => (
                         <span className="block text-sm">{task}</span>
                       ))
@@ -125,6 +153,70 @@ function Dashboard() {
       </main>
 
       <Footer />
+    </div>
+  )
+}
+
+function RatingMenu({ onUpdate }) {
+  const [service, setService] = useState(0)
+  const [price, setPrice] = useState(0)
+  const [accuracy, setAccuracy] = useState(0)
+
+  useEffect(() => {
+    onUpdate({ service, price, accuracy })
+  }, [service, price, accuracy])
+
+  return (
+    <div className="w-full flex flex-col gap-1 mt-2">
+      <div className="flex w-full justify-between">
+        <span className="block text-sm">Service</span>
+        <StarLevel onSubmit={(x) => setService(x)} />
+      </div>
+      <div className="flex w-full justify-between">
+        <span className="block text-sm">Price</span>
+        <StarLevel onSubmit={(x) => setPrice(x)} />
+      </div>
+      <div className="flex w-full justify-between">
+        <span className="block text-sm">Offer Accuracy</span>
+        <StarLevel onSubmit={(x) => setAccuracy(x)} />
+      </div>
+    </div>
+  )
+}
+
+function StarLevel({ onSubmit }) {
+  const [starLevel, setStarLevel] = useState(0)
+  const [hoveringLevel, setHoveringLevel] = useState(0)
+
+  useEffect(() => {
+    onSubmit(starLevel)
+  }, [starLevel])
+
+  return (
+    <div className="flex gap-0.5">
+      {Array(5)
+        .fill(0)
+        .map((_, index) => {
+          const level = index + 1
+          return (
+            <div
+              key={level}
+              className={`flex items-center justify-center cursor-pointer`}
+              onMouseEnter={() => setHoveringLevel(level)}
+              onMouseLeave={() => setHoveringLevel(0)}
+              onClick={() => setStarLevel(level)}
+            >
+              <FontAwesomeIcon
+                icon={faStar}
+                className={`w-4 h-4 ${
+                  starLevel >= level || hoveringLevel >= level
+                    ? 'text-yellow-500'
+                    : 'text-gray-500'
+                }`}
+              />
+            </div>
+          )
+        })}{' '}
     </div>
   )
 }
