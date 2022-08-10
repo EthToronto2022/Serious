@@ -9,6 +9,7 @@ export const useUserContract = () => {
 
   const [keywords, setKeywords] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [companies, setCompanies] = useState([]);
 
   const initalize = async () => {
     await getSelectedKeywords();
@@ -27,7 +28,7 @@ export const useUserContract = () => {
       const contract = getContract(chainId);
 
       const keywords = await contract.getUserKeywords(account);
-      keywords.length && setKeywords(keywords);
+      setKeywords(keywords);
     } catch (err) {
       console.error(err);
       setKeywords([]);
@@ -100,6 +101,20 @@ export const useUserContract = () => {
     setLoading(false);
   };
 
+  const getCompaniesFromKeyword = async (keyword) => {
+    setLoading(true);
+    try {
+      const contract = getContract(chainId);
+
+      const companies = await contract.keywords(keyword);
+      setCompanies(companies);
+    } catch (err) {
+      setMessages([]);
+    }
+
+    setLoading(false);
+  };
+
   const withdrawForEscrow = async (keyword) => {};
 
   return {
@@ -110,5 +125,7 @@ export const useUserContract = () => {
     getMessages,
     verifyCode,
     setPledges,
+    getCompaniesFromKeyword,
+    companies,
   };
 };

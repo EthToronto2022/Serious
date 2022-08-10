@@ -19,6 +19,7 @@ import Dashboard from "./pages/Dashboard";
 import Providers from "./pages/Providers";
 import ProvidersRegistrations from "./pages/ProvidersRegistrations";
 import ProvidersDashboard from "./pages/ProvidersDashboard";
+import ProvidersVideo from "./pages/ProvidersVideo";
 
 function getLibrary(provider) {
   return new Web3Provider(provider);
@@ -61,6 +62,7 @@ function App() {
           element={<ProvidersRegistrations />}
         />
         <Route path="/providers-dashboard" element={<ProvidersDashboard />} />
+        <Route path="/providers-video" element={<ProvidersVideo />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Web3ReactProvider>

@@ -8,7 +8,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
 import { useUserContract } from "../utils/contractInterfaceUser.js";
 
 const mockBusinesess = [
-  { name: "Ratehub Mortgage", completed: true },
+  { name: "Ratehub Mortgage", completed: false },
   {
     name: "True North Mortgage",
     completed: true,
@@ -21,14 +21,57 @@ const pledge = 0.01;
 function Dashboard() {
   const { loading, keywords } = useUserContract();
 
-  console.log(keywords);
-
   const [businesess, setBusinesess] = useState(mockBusinesess);
   const isAllCompleted = businesess.every((business) => business.completed);
 
   const completedRatings = businesess.every(
     (b) => b.ratings && Object.values(b.ratings).every((r) => r > 0)
   );
+
+  console.log(keywords);
+  if (loading || keywords.length === 0) {
+    return (
+      <div className="flex flex-col min-h-screen overflow-hidden">
+        {/*  Site header */}
+        <Header />
+
+        {/*  Page content */}
+        <main className="grow flex flex-col items-center">
+          <div className="flex flex-col items-center justify-center">
+            <div className="h-auto w-screen">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6">
+                <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+                  {/* Section header */}
+                  <div className="max-w-3xl mx-auto text-center flex-col flex items-center">
+                    <h1 className="h1 mb-4" data-aos="zoom-y-out">
+                      Manage your interactions.
+                    </h1>
+                    <p
+                      className="text-xl text-gray-600"
+                      data-aos="zoom-y-out"
+                      data-aos-delay="150"
+                    >
+                      Follow up on your commitments and restore pledged funds.
+                    </p>
+                    {keywords.length === 0 && (
+                      <p
+                        className="h3 mt-16"
+                        data-aos="zoom-y-out"
+                        data-aos-delay="150"
+                      >
+                        Navigate to your products to start.
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
