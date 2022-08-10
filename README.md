@@ -1,4 +1,6 @@
-# Serious
+# Serious - a web 3 marketing disruptor Dapp
+
+![Homepage](src/screenshots/1.png?raw=true "Homepage")
 
 ## Instructions
 
