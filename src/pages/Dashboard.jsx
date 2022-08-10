@@ -21,8 +21,6 @@ const pledge = 0.01;
 function Dashboard() {
   const { loading, keywords } = useUserContract();
 
-  console.log(keywords);
-
   const [businesess, setBusinesess] = useState(mockBusinesess);
   const isAllCompleted = businesess.every((business) => business.completed);
 

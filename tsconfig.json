@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/PageNotFound.jsx", "src/constants.js", "src/partials/List/Row.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/PageNotFound.jsx", "src/constants.jsx", "src/partials/List/Row.jsx"],
   "exclude": ["node_modules"]
 }
