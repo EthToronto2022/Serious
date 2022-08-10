@@ -67,6 +67,23 @@ export const useUserContract = () => {
     setLoading(false);
   };
 
+  const setPledges = async (companies) => {
+    setLoading(true);
+
+    try {
+      const signer = await library.getSigner();
+      const contract = getContract(chainId, signer);
+
+      const tx = await contract.setPledges(companies);
+      await tx.wait();
+
+      await initalize();
+    } catch (err) {
+      console.log(err);
+    }
+    setLoading(false);
+  };
+
   const verifyCode = async (keyword) => {
     setLoading(true);
 

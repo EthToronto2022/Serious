@@ -8,11 +8,16 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const contract = await ethers.getContractFactory("Sirius");
-  const instance = await contract.deploy();
+  const factory = await ethers.getContractFactory("Sirius");
+  const contract = await factory.deploy();
 
-  await instance.deployed();
-  console.log("Address:", instance.address);
+  await contract.deployed();
+  console.log("Address:", contract.address);
+
+  const tx = await contract.setKeyword("mortgage", {
+    value: ethers.utils.parseEther("0.01"),
+  });
+  await tx.await();
 }
 
 main();
