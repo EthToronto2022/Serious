@@ -4,13 +4,6 @@ require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 
 module.exports = {
-  networks: {
-    polygon: {
-      url: "https://polygon-rpc.com/",
-      accounts: [process.env.PRIVATE_KEY],
-      chainId: 137,
-    },
-  },
   solidity: {
     version: "0.8.15",
     settings: {
