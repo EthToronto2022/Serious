@@ -32,20 +32,22 @@ contract Sirius {
     _;
   }
 
-  mapping(address => bool) private isAdmin;
+  uint256 private creationFee = 0.01 ether;
+
+  mapping(address => bool) isAdmin;
+
   //user => (keyword => escrow amt)
-  mapping(address => mapping(string => uint256)) private escrow;
-  mapping(string => Company[]) private keywords;
-  mapping(string => Company) private nameToCompany;
-  mapping(address => uint256) private userScore;
-  mapping(string => Message) private linkToMessage;
-  mapping(string => bool) private companyRemoved;
+  mapping(address => mapping(string => uint256)) escrow;
+  mapping(string => Company[]) keywords;
+  mapping(string => Company) nameToCompany;
+  mapping(address => uint256) userScore;
+  mapping(string => Message) linkToMessage;
+  mapping(string => bool) companyRemoved;
   mapping(address => string[]) activeKeywords;
 
-  //for every keyword, any given user can be in escrow for some companies
-  //mapping(keyword => mapping(user => Company[]))
+  //company name to 'raised hand' users
+  mapping(string => address[]) interestedUsers;
 
-  //FIRST; User sets up their pledges
   //by user
   mapping(address => mapping(string => Message[])) userToMessages;
   //by keyword
@@ -54,8 +56,6 @@ contract Sirius {
   function addAdmin(address _admin) public onlyAdmin {
     isAdmin[_admin] = true;
   }
-
-  //remove admin needs to be multisig; dont need to add now
 
   //user clicks collect score button??
   function increaseUserScore(uint256 _scoreIncrement) internal {
@@ -142,6 +142,7 @@ contract Sirius {
       _image
     );
     //record payment timestamp?? <-----
+
     nameToCompany[_name] = company;
     keywords[_keyword].push(company);
 
@@ -156,7 +157,7 @@ contract Sirius {
     );
 
     delete nameToCompany[company.name];
-
+    
     Company[] memory companies = keywords[company.keyword];
 
     for (uint256 i; i <= companies.length; i++) {
@@ -185,11 +186,22 @@ contract Sirius {
   }
 
   function setPledges(Company[] memory _companies) public {
+    activeKeywords[msg.sender].push(_companies[0].keyword);
     for (uint256 i; i <= _companies.length; i++) {
       Pledge memory pledge = Pledge(_companies[i].name, false, false);
       pledges[_companies[i].keyword][msg.sender].push(pledge);
-      activeKeywords[msg.sender].push(companies[i].keyword);
     }
+  }
+
+  function setKeyword(string memory _keyword) public payable {
+      require(msg.value == creationFee, "Invalid fee");
+  }
+
+  //companies need to know WHO to contact (company name to pledges or user addrs)
+
+  function getInterestedUsers(string memory _name) public returns (address[] memory) {
+      address[] memory users = interestedUsers[_name];
+      return users;
   }
 
   function verifyCode(string memory _word, string memory _link) public view {
@@ -199,15 +211,25 @@ contract Sirius {
         keccak256(abi.encodePacked(message.hashedCode)),
       "wrong code"
     );
+
+    //get from message to pledge and set pledge to verified
+    Company memory company = nameToCompany[message.name];
+    //mapping(string => mapping(address => Pledge[])) pledges;
+
+    Pledge[] memory pledgesArr = pledges[company.keyword][msg.sender];
+
+    for(uint256 i; i <= pledgesArr.length; i++){
+        if(
+        keccak256(abi.encodePacked(pledgesArr[i].name)) ==
+        keccak256(abi.encodePacked(message.name))
+        ){
+            pledgesArr[i].codeVerified = true;
+            return;
+        }
+    }
   }
 
-  function checkVerification(string memory _keyword)
-    internal
-    view
-    returns (bool)
-  {
-    //we want to make sure their code matches and they rated all their companies
-
+  function checkVerification(string memory _keyword) internal view returns (bool) {
     Pledge[] memory pledgesArr = getPledgesByKeyword(_keyword);
 
     for (uint256 i; i <= pledgesArr.length; i++) {
