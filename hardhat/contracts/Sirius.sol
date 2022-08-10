@@ -46,12 +46,20 @@ contract Sirius {
   mapping(address => string[]) public activeKeywords;
 
   //company name to 'raised hand' users
-  mapping(string => address[]) public interestedUsers ;
+  mapping(string => address[]) public interestedUsers;
 
   //by user
   mapping(address => mapping(string => Message[])) public userToMessages;
   //by keyword
   mapping(string => mapping(address => Pledge[])) public pledges;
+
+  function getUserKeywords(address _user)
+    public
+    view
+    returns (string[] memory)
+  {
+    return activeKeywords[_user];
+  }
 
   function addAdmin(address _admin) public onlyAdmin {
     isAdmin[_admin] = true;
@@ -187,7 +195,7 @@ contract Sirius {
 
   function setPledges(Company[] memory _companies) public {
     activeKeywords[msg.sender].push(_companies[0].keyword);
-    for (uint256 i; i <= _companies.length; i++) {
+    for (uint256 i; i < _companies.length; i++) {
       Pledge memory pledge = Pledge(_companies[i].name, false, false);
       pledges[_companies[i].keyword][msg.sender].push(pledge);
     }
@@ -210,7 +218,10 @@ contract Sirius {
     return users;
   }
 
-  function verifyCode(string memory _word, string memory _hashedCode) public view {
+  function verifyCode(string memory _word, string memory _hashedCode)
+    public
+    view
+  {
     Message memory message = codeToMessage[_hashedCode];
     require(
       keccak256(abi.encodePacked(_word)) ==
