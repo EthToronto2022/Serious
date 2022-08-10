@@ -15,8 +15,8 @@ function ProductList() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="h-auto w-screen">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="">
+        <div className="">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center">
