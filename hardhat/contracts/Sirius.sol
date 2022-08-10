@@ -35,13 +35,13 @@ contract Sirius {
   uint256 private creationFee = 0.01 ether;
 
   mapping(address => bool) isAdmin;
-
   //user => (keyword => escrow amt)
   mapping(address => mapping(string => uint256)) public escrow;
   mapping(string => Company[]) public keywords;
   mapping(string => Company) public nameToCompany;
   mapping(address => uint256) public userScore;
-  mapping(string => Message) public linkToMessage;
+  //mapping(string => Message) public linkToMessage;
+  mapping(string => Message) public codeToMessage;
   mapping(string => bool) public companyRemoved;
   mapping(address => string[]) public activeKeywords;
 
@@ -182,7 +182,7 @@ contract Sirius {
   ) public {
     Message memory message = Message(_name, _link, _hashedCode);
     userToMessages[_client][_keyword].push(message);
-    linkToMessage[_link] = message;
+    codeToMessage[_hashedCode] = message;
   }
 
   function setPledges(Company[] memory _companies) public {
@@ -210,8 +210,8 @@ contract Sirius {
     return users;
   }
 
-  function verifyCode(string memory _word, string memory _link) public view {
-    Message memory message = linkToMessage[_link];
+  function verifyCode(string memory _word, string memory _hashedCode) public view {
+    Message memory message = codeToMessage[_hashedCode];
     require(
       keccak256(abi.encodePacked(_word)) ==
         keccak256(abi.encodePacked(message.hashedCode)),
@@ -265,7 +265,7 @@ contract Sirius {
 
     for (uint256 i; i <= messages.length; i++) {
       Message memory message = messages[i];
-      delete linkToMessage[message.link];
+      delete codeToMessage[message.hashedCode];
     }
     delete userToMessages[msg.sender][_keyword];
     delete pledges[_keyword][msg.sender];
