@@ -23,7 +23,7 @@ const useContract = () => {
 
     try {
       const signer = await library.getSigner();
-      const contract = getContract(chainIdToContract[chainId], chainId, signer);
+      const contract = getContract(chainId, signer);
 
       const keywords = await contract.userSelectedKeywords(account);
       setKeywords(keywords);
@@ -38,7 +38,7 @@ const useContract = () => {
 
     try {
       const signer = await library.getSigner();
-      const contract = getContract(chainIdToContract[chainId], chainId, signer);
+      const contract = getContract(chainId, signer);
 
       const messages = await contract.getMessages(account);
       setMessages(messages);
@@ -55,7 +55,7 @@ const useContract = () => {
 
     try {
       const signer = await library.getSigner();
-      const contract = getContract(chainIdToContract[chainId], chainId, signer);
+      const contract = getContract(chainId, signer);
 
       // const message = await contract.verifyCode(keyword, account);
       setMessages(messages.concat(message));
