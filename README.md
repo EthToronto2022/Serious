@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Serious
 
-## Getting Started
+## Instructions
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
@@ -10,25 +10,40 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Introduction
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Marketing or getting the product to your users or finding your users is a key requirement of any project. Almost all products/services will need the help of social media to reach out to a larger set of probable customers. 
+The problem as a product builder/ company you are wasting a ton of money to get a 3.4 percent customer conversion rate. In the end your ads are being viewed or dismissed by people who really have no requirement of your product/service.
+From the user perspective he is bombarded with ads and phone calls he has no use of. 
+The only person who is guaranteed to make money in this process is the middleman social media platform which gets paid for such a low success rate. 
+The total amount spent a year in advertising in US is 155 Billion Dollars. That could potentially be savings for the company that can be passed on to the user in discounts on the product.
+Women are the major purchasing decision makers and they get targeted by advertisers. Their time should not be wasted on unnecessary ads.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## The Gap
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Companies pay a ton of money for wasteful advertisements
+Users are bombarded with nonsensical calls and ads
+Platforms who provide very little value now makes a bigger because they enjoy network effects
 
-## Learn More
+## How Web3 and Smart Contracts can Disrupt this market/ing (Logic Model)
 
-To learn more about Next.js, take a look at the following resources:
+The key is to get SERIOUS buyers to register interest in a product or service. 
+Once they have registered interest, they need to commit to open at least one advertiser quote go through the video or fill a form.  And put crypto collateral in an escrow.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Once this is done, advertisers who are listening to this topic are notified and they send their quotes. The user who can see this in their dashboard goes through the offer. The seller can decide to spend his cost of customer acquisition as discount directly to the customer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Obstacles
+It is a major behavioral change to go and register yourself for an advertisement. This is crucial. You are used to advertisements coming to you online or on TV.
 
-## Deploy on Vercel
+This can only be fixed by viral growth and onboarding great deals from major companies in the beginning. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Sustaining the Project
+As users review advertisers, advertisers pay a small amount of money from their user acquisition cost average to pay for gas of state update of the smart contract and also for the dev team. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+As the user base and interactions and transactions grow, we will get a better review of the company and their deals as far as customers go. When customers grow so will the companies and the deals they offer. 
+
+## Measuring Success
+
+Average cost of customer acquisition 
+Ad spend for 100,000 Views
+Measure how many ads are converted to sales compared to how many become sales with traditional advertising methods. 
