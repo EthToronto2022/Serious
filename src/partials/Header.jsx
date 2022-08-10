@@ -21,9 +21,6 @@ function Header() {
   useEffect(() => {
     const provider = window.localStorage.getItem('provider')
     if (provider) activate(Injected)
-    setTimeout(() => {
-      if (!account) setLoadingWills(false)
-    }, 500)
   }, [])
 
   const setProvider = (type) => {

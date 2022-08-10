@@ -16,6 +16,9 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ResetPassword from './pages/ResetPassword'
 import PageNotFound from './pages/PageNotFound'
+import Product from './pages/Product'
+import { BuyerFlowProvider } from './context/buyerFlow'
+import ProviderSelect from './pages/ProviderSelect'
 
 function getLibrary(provider) {
   return new Web3Provider(provider)
@@ -46,6 +49,11 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:category" element={<Product />} />
+        <Route
+          path="/products/:category/providers"
+          element={<ProviderSelect />}
+        />
         {/* <Route path="/Dashboard" element={<Dashboard />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/signin" element={<SignIn />} />
@@ -57,4 +65,12 @@ function App() {
   )
 }
 
-export default App
+const WrappedApp = () => {
+  return (
+    <BuyerFlowProvider>
+      <App />
+    </BuyerFlowProvider>
+  )
+}
+
+export default WrappedApp

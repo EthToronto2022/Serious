@@ -1,8 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { PRODUCT_LIST } from '../constants'
+import { useBuyerFlow } from '../context/buyerFlow'
 
 function ProductList() {
+  const { config, setConfig, resetConfig } = useBuyerFlow()
+
   const [selectedIndex, setSelectedIndex] = useState(null)
+
+  useEffect(() => {
+    resetConfig()
+  }, [])
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -29,6 +38,10 @@ function ProductList() {
         {PRODUCT_LIST.map(({ id, title, iconPath }, index) => (
           <div
             onClick={() => {
+              setConfig({
+                ...config,
+                product: index === selectedIndex ? {} : PRODUCT_LIST[index],
+              })
               setSelectedIndex(index === selectedIndex ? null : index)
             }}
             key={id}
@@ -42,9 +55,12 @@ function ProductList() {
         ))}
       </div>
       {selectedIndex !== null ? (
-        <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 mt-4">
+        <Link
+          to={`/products/${PRODUCT_LIST[selectedIndex].id}`}
+          className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 mt-4"
+        >
           Next
-        </button>
+        </Link>
       ) : null}
     </div>
   )
