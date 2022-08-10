@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-contract Sirious {
+contract Sirius {
   struct Company {
     address companyAdmin;
     int256 priceRating;
@@ -121,7 +121,6 @@ contract Sirious {
   }
 
   function addCompany(
-    address _companyAdmin,
     string memory _name,
     string memory _description,
     string memory _keyword,
@@ -131,7 +130,7 @@ contract Sirious {
     //**PAYMENT SCHEME TBD
     //require(msg.value ==);
     Company memory company = Company(
-      _companyAdmin,
+      msg.sender,
       0,
       0,
       0,
@@ -152,7 +151,7 @@ contract Sirious {
     Company memory company = getCompany(_name);
     require(
       (msg.sender == company.companyAdmin || isAdmin[msg.sender]),
-      'admins only'
+      "admins only"
     );
 
     delete nameToCompany[company.name];
@@ -196,7 +195,7 @@ contract Sirious {
     require(
       keccak256(abi.encodePacked(_word)) ==
         keccak256(abi.encodePacked(message.hashedCode)),
-      'wrong code'
+      "wrong code"
     );
   }
 
@@ -219,8 +218,8 @@ contract Sirious {
 
   function withdrawFromEscrow(string memory _keyword) public {
     Pledge[] memory pledgesArr = getPledgesByKeyword(_keyword);
-    require(pledgesArr.length != 0, 'no pledges');
-    require(checkVerification(_keyword), 'not complete');
+    require(pledgesArr.length != 0, "no pledges");
+    require(checkVerification(_keyword), "not complete");
 
     uint256 owed = escrow[msg.sender][_keyword];
     //re-entrancy attack guard
