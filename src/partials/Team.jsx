@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import TeamMember01 from '../images/team-member-01.jpg'
-import TeamMember02 from '../images/team-member-02.jpg'
-import TeamMember03 from '../images/team-member-03.jpg'
-import TeamMember04 from '../images/team-member-04.jpg'
-import TeamMember05 from '../images/team-member-05.jpg'
-import TeamMember06 from '../images/team-member-06.jpg'
-import TeamMember07 from '../images/team-member-07.jpg'
-import TeamMember08 from '../images/team-member-08.jpg'
-import TeamMember09 from '../images/team-member-09.jpg'
+import TeamMember01 from "../images/team-member-01.jpg";
+import TeamMember02 from "../images/team-member-02.jpg";
+import TeamMember03 from "../images/team-member-03.jpg";
+import TeamMember04 from "../images/team-member-04.jpg";
+import TeamMember05 from "../images/team-member-05.jpg";
+import TeamMember06 from "../images/team-member-06.jpg";
+import TeamMember07 from "../images/team-member-07.jpg";
+import TeamMember08 from "../images/team-member-08.jpg";
+import TeamMember09 from "../images/team-member-09.jpg";
 
 function Team() {
   return (
@@ -50,12 +50,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -89,12 +89,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -128,12 +128,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -167,12 +167,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -206,12 +206,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -245,12 +245,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -284,12 +284,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -323,12 +323,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -362,12 +362,12 @@ function Team() {
                 <div className="text-sm text-gray-600 font-medium">
                   <a className="text-gray-900 hover:underline" href="#0">
                     Twitter
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     GitHub
-                  </a>{' '}
-                  ·{' '}
+                  </a>{" "}
+                  ·{" "}
                   <a className="text-gray-900 hover:underline" href="#0">
                     LinkedIn
                   </a>
@@ -378,7 +378,7 @@ function Team() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Team
+export default Team;

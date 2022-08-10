@@ -1,28 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react'
-import Transition from '../utils/Transition'
+import React, { useState, useRef, useEffect } from "react";
+import Transition from "../utils/Transition";
 
-import TopImage from '../images/features-top-image.png'
-import FeaturesBg01 from '../images/features-home-bg-01.png'
-import FeaturesElement01 from '../images/features-home-element-01.png'
-import FeaturesElement02 from '../images/features-home-element-02.png'
-import FeaturesElement03 from '../images/features-home-element-03.png'
+import TopImage from "../images/features-top-image.png";
+import FeaturesBg01 from "../images/features-home-bg-01.png";
+import FeaturesElement01 from "../images/features-home-element-01.png";
+import FeaturesElement02 from "../images/features-home-element-02.png";
+import FeaturesElement03 from "../images/features-home-element-03.png";
 
 function FeaturesHome() {
-  const [tab, setTab] = useState(1)
+  const [tab, setTab] = useState(1);
 
-  const tabs = useRef(null)
+  const tabs = useRef(null);
 
   const heightFix = () => {
     if (tabs.current.children[tab - 1]) {
       tabs.current.style.height =
-        tabs.current.children[tab - 1].offsetHeight + 'px'
+        tabs.current.children[tab - 1].offsetHeight + "px";
     }
-  }
+  };
 
   useEffect(() => {
-    heightFix()
+    heightFix();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab])
+  }, [tab]);
 
   return (
     <section className="relative">
@@ -70,12 +70,12 @@ function FeaturesHome() {
                 <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 1
-                      ? 'bg-white shadow-md border-gray-200 hover:shadow-lg'
-                      : 'bg-gray-200 border-transparent'
+                      ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
+                      : "bg-gray-200 border-transparent"
                   }`}
                   onClick={(e) => {
-                    e.preventDefault()
-                    setTab(1)
+                    e.preventDefault();
+                    setTab(1);
                   }}
                 >
                   <div>
@@ -100,12 +100,12 @@ function FeaturesHome() {
                 <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 2
-                      ? 'bg-white shadow-md border-gray-200 hover:shadow-lg'
-                      : 'bg-gray-200 border-transparent'
+                      ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
+                      : "bg-gray-200 border-transparent"
                   }`}
                   onClick={(e) => {
-                    e.preventDefault()
-                    setTab(2)
+                    e.preventDefault();
+                    setTab(2);
                   }}
                 >
                   <div>
@@ -133,12 +133,12 @@ function FeaturesHome() {
                 <button
                   className={`text-left flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${
                     tab !== 3
-                      ? 'bg-white shadow-md border-gray-200 hover:shadow-lg'
-                      : 'bg-gray-200 border-transparent'
+                      ? "bg-white shadow-md border-gray-200 hover:shadow-lg"
+                      : "bg-gray-200 border-transparent"
                   }`}
                   onClick={(e) => {
-                    e.preventDefault()
-                    setTab(3)
+                    e.preventDefault();
+                    setTab(3);
                   }}
                 >
                   <div>
@@ -200,7 +200,7 @@ function FeaturesHome() {
                       width="500"
                       height="147"
                       alt="Element 01"
-                      style={{ top: '22%' }}
+                      style={{ top: "22%" }}
                     />
                     <img
                       className="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500"
@@ -208,7 +208,7 @@ function FeaturesHome() {
                       width="500"
                       height="158"
                       alt="Element 02"
-                      style={{ top: '39%' }}
+                      style={{ top: "39%" }}
                     />
                     <img
                       className="md:max-w-none absolute w-full left-0 bottom-0 transform animate-float animation-delay-1000"
@@ -216,7 +216,7 @@ function FeaturesHome() {
                       width="500"
                       height="167"
                       alt="Element 03"
-                      style={{ top: '77%' }}
+                      style={{ top: "77%" }}
                     />
                   </div>
                 </Transition>
@@ -246,7 +246,7 @@ function FeaturesHome() {
                       width="500"
                       height="167"
                       alt="Element 03"
-                      style={{ top: '18%' }}
+                      style={{ top: "18%" }}
                     />
                     <img
                       className="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500"
@@ -254,7 +254,7 @@ function FeaturesHome() {
                       width="500"
                       height="158"
                       alt="Element 02"
-                      style={{ top: '40%' }}
+                      style={{ top: "40%" }}
                     />
                     <img
                       className="md:max-w-none absolute w-full left-0 transform animate-float"
@@ -262,7 +262,7 @@ function FeaturesHome() {
                       width="500"
                       height="147"
                       alt="Element 01"
-                      style={{ top: '79%' }}
+                      style={{ top: "79%" }}
                     />
                   </div>
                 </Transition>
@@ -292,7 +292,7 @@ function FeaturesHome() {
                       width="500"
                       height="147"
                       alt="Element 01"
-                      style={{ top: '22%' }}
+                      style={{ top: "22%" }}
                     />
                     <img
                       className="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500"
@@ -300,7 +300,7 @@ function FeaturesHome() {
                       width="500"
                       height="158"
                       alt="Element 02"
-                      style={{ top: '39%' }}
+                      style={{ top: "39%" }}
                     />
                     <img
                       className="md:max-w-none absolute w-full left-0 bottom-0 transform animate-float animation-delay-1000"
@@ -308,7 +308,7 @@ function FeaturesHome() {
                       width="500"
                       height="167"
                       alt="Element 03"
-                      style={{ top: '77%' }}
+                      style={{ top: "77%" }}
                     />
                   </div>
                 </Transition>
@@ -318,7 +318,7 @@ function FeaturesHome() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeaturesHome
+export default FeaturesHome;

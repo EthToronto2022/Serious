@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import TeamImage01 from '../images/team-mosaic-01.jpg'
-import TeamImage02 from '../images/team-mosaic-02.jpg'
-import TeamImage03 from '../images/team-mosaic-03.jpg'
-import TeamImage04 from '../images/team-mosaic-04.jpg'
+import TeamImage01 from "../images/team-mosaic-01.jpg";
+import TeamImage02 from "../images/team-mosaic-02.jpg";
+import TeamImage03 from "../images/team-mosaic-03.jpg";
+import TeamImage04 from "../images/team-mosaic-04.jpg";
 
 function Career() {
   return (
@@ -26,7 +26,7 @@ function Career() {
               <div className="relative w-full h-0 pb-3/4">
                 <figure
                   className="absolute h-auto"
-                  style={{ bottom: '9%', width: '41.7%', maxWidth: '320px' }}
+                  style={{ bottom: "9%", width: "41.7%", maxWidth: "320px" }}
                   data-aos="fade-right"
                 >
                   <img
@@ -40,10 +40,10 @@ function Career() {
                 <figure
                   className="absolute"
                   style={{
-                    left: '14.8%',
-                    top: '11.8%',
-                    width: '70.3%',
-                    maxWidth: '540px',
+                    left: "14.8%",
+                    top: "11.8%",
+                    width: "70.3%",
+                    maxWidth: "540px",
                   }}
                   data-aos="fade-down"
                   data-aos-delay="150"
@@ -59,10 +59,10 @@ function Career() {
                 <figure
                   className="absolute h-auto"
                   style={{
-                    bottom: '0',
-                    right: '6.2%',
-                    width: '41.7%',
-                    maxWidth: '320px',
+                    bottom: "0",
+                    right: "6.2%",
+                    width: "41.7%",
+                    maxWidth: "320px",
                   }}
                   data-aos="fade-left"
                   data-aos-delay="300"
@@ -78,10 +78,10 @@ function Career() {
                 <figure
                   className="absolute h-auto"
                   style={{
-                    top: '5.9%',
-                    right: '0',
-                    width: '23.4%',
-                    maxWidth: '180px',
+                    top: "5.9%",
+                    right: "0",
+                    width: "23.4%",
+                    maxWidth: "180px",
                   }}
                   data-aos="zoom-y-out"
                   data-aos-delay="450"
@@ -96,7 +96,7 @@ function Career() {
                 </figure>
                 <svg
                   className="relative mx-auto h-auto rounded-full shadow-2xl"
-                  style={{ width: '10.4%' }}
+                  style={{ width: "10.4%" }}
                   viewBox="0 0 32 32"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -195,7 +195,7 @@ function Career() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Career
+export default Career;

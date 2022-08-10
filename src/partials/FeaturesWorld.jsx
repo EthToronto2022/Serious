@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import PlanetImage from '../images/planet.png'
-import PlanetAvatar01 from '../images/planet-avatar-01.png'
-import PlanetAvatar02 from '../images/planet-avatar-02.png'
+import PlanetImage from "../images/planet.png";
+import PlanetAvatar01 from "../images/planet-avatar-01.png";
+import PlanetAvatar02 from "../images/planet-avatar-02.png";
 
 function FeaturesWorld() {
   return (
@@ -30,7 +30,7 @@ function FeaturesWorld() {
                 width="800"
                 height="800"
                 viewBox="0 0 800 800"
-                style={{ maxWidth: '200%' }}
+                style={{ maxWidth: "200%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g className="fill-current text-gray-400 opacity-75">
@@ -51,7 +51,7 @@ function FeaturesWorld() {
               <svg
                 className="absolute top-0 w-full h-auto"
                 viewBox="0 0 400 400"
-                style={{ left: '12%' }}
+                style={{ left: "12%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <defs>
@@ -210,7 +210,7 @@ function FeaturesWorld() {
                 width="48"
                 height="48"
                 viewBox="0 0 48 48"
-                style={{ width: '12%', top: '45%', left: '50%' }}
+                style={{ width: "12%", top: "45%", left: "50%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g className="fill-current text-blue-600">
@@ -234,7 +234,7 @@ function FeaturesWorld() {
                 width="48"
                 height="48"
                 viewBox="0 0 48 48"
-                style={{ width: '12%', top: '19%', left: '46%' }}
+                style={{ width: "12%", top: "19%", left: "46%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g className="fill-current text-blue-600">
@@ -255,7 +255,7 @@ function FeaturesWorld() {
                 width="261"
                 height="105"
                 alt="Planet avatar 01"
-                style={{ width: '65.25%', top: '-3%', right: '-27%' }}
+                style={{ width: "65.25%", top: "-3%", right: "-27%" }}
               />
               <img
                 className="absolute max-w-full transform animate-float animation-delay-1000"
@@ -263,13 +263,13 @@ function FeaturesWorld() {
                 width="355"
                 height="173"
                 alt="Planet avatar 02"
-                style={{ width: '88.7%', bottom: '-20%', right: '-18%' }}
+                style={{ width: "88.7%", bottom: "-20%", right: "-18%" }}
               />
               {/* Black icon */}
               <svg
                 className="absolute top-0 max-w-full w-20 h-auto rounded-full shadow-xl"
                 viewBox="0 0 80 80"
-                style={{ width: '20%', left: '6%' }}
+                style={{ width: "20%", left: "6%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
@@ -289,7 +289,7 @@ function FeaturesWorld() {
               <svg
                 className="absolute max-w-full w-16 h-auto rounded-full shadow-xl"
                 viewBox="0 0 64 64"
-                style={{ width: '16%', top: '32%', left: '-27%' }}
+                style={{ width: "16%", top: "32%", left: "-27%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
@@ -316,7 +316,7 @@ function FeaturesWorld() {
               <svg
                 className="absolute max-w-full w-16 h-auto rounded-full shadow-xl"
                 viewBox="0 0 64 64"
-                style={{ width: '16%', top: '55%', right: '-16%' }}
+                style={{ width: "16%", top: "55%", right: "-16%" }}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
@@ -336,7 +336,7 @@ function FeaturesWorld() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeaturesWorld
+export default FeaturesWorld;
