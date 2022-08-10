@@ -66,7 +66,6 @@ export const useUserContract = () => {
     }
     setLoading(false);
   };
-<<<<<<< HEAD
 
   const verifyCode = async (keyword) => {
     setLoading(true);
@@ -86,8 +85,4 @@ export const useUserContract = () => {
   const withdrawForEscrow = async (keyword) => {};
 
   return { loading, keywords, messages, setKeyword, getMessages, verifyCode };
-=======
-
-  const withdrawForEscrow = async (keyword) => {};
->>>>>>> 14efc798f416217e6a28baadafbd27891486c7b8
 };
