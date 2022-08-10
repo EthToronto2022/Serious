@@ -5,6 +5,9 @@
 ## Demo
 [Demo](https://www.loom.com/share/10ef2c9e762e49b5bbe8790e9a143ea5 )
 
+## 1 pager
+[1 pager](https://docs.google.com/document/d/1Xln5rdOQ_alhk_ACln6NFxNvDVYKsqdA/edit?usp=sharing&ouid=109610479537239508388&rtpof=true&sd=true)
+
 ## Instructions
 
 Run the development server:
