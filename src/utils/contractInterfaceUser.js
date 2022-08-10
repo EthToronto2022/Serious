@@ -27,8 +27,9 @@ export const useUserContract = () => {
       const contract = getContract(chainId);
 
       const keywords = await contract.getUserKeywords(account);
-      setKeywords(keywords);
+      keywords.length && setKeywords(keywords);
     } catch (err) {
+      console.error(err);
       setKeywords([]);
     }
     setLoading(false);

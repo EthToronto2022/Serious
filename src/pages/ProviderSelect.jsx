@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Dropdown from "../utils/Dropdown";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 
-import { PROVIDER_LIST } from "../constants";
 import StarRating from "../partials/StarRating";
 import ProgressBar from "../partials/ProgressBar";
 
+import { PROVIDER_LIST } from "../constants";
 import { useBuyerFlow } from "../context/buyerFlow";
 import { useUserContract } from "../utils/contractInterfaceUser";
 

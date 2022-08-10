@@ -1,17 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 
 import { PRODUCT_LIST } from "../constants";
 import { useBuyerFlow } from "../context/buyerFlow";
+import { useUserContract } from "../utils/contractInterfaceUser";
 
 function ProductList() {
   const { config, setConfig, resetConfig } = useBuyerFlow();
+  const { loading, keywords } = useUserContract();
 
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     resetConfig();
   }, []);
+
+  useEffect(() => {
+    console.log("here");
+    !loading && console.log(keywords);
+  }, [loading]);
+
+  const filteredKeywords = useMemo(
+    () => PRODUCT_LIST.filter((product) => !keywords.includes(product.id)),
+    [keywords]
+  );
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -35,7 +47,7 @@ function ProductList() {
         </div>
       </div>
       <div className="grid grid-cols-2 justify-center items-center pt-5">
-        {PRODUCT_LIST.map(({ id, title, iconPath }, index) => (
+        {filteredKeywords.map(({ id, title, iconPath }, index) => (
           <div
             onClick={() => {
               setConfig({
